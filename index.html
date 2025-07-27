@@ -1,178 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aleeza Zia | Data Analyst Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-color: #1e293b;
+      --accent-color: #38bdf8;
+      --background: #f8fafc;
+      --text-color: #0f172a;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
+      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
     }
 
     body {
-      background: linear-gradient(to right, #f2f2f2, #d6e4f0);
-      color: #222;
+      background: var(--background);
+      color: var(--text-color);
       line-height: 1.6;
     }
 
     header {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: #0f3057;
+      background: var(--primary-color);
       color: white;
+      padding: 2rem;
+      text-align: center;
       position: relative;
-      overflow: hidden;
     }
 
     header img {
-      width: 150px;
       border-radius: 50%;
-      border: 5px solid white;
-      margin-bottom: 1rem;
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border: 4px solid var(--accent-color);
+      margin-top: 1rem;
     }
 
-    header h1 {
+    h1 {
       font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.3rem;
+      color: var(--primary-color);
     }
 
-    .section {
-      padding: 3rem 2rem;
+    section {
+      padding: 2rem;
       max-width: 1000px;
       margin: auto;
     }
 
-    .section h2 {
-      color: #0f3057;
-      margin-bottom: 1rem;
-      font-size: 2rem;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
     .card {
       background: white;
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      margin-top: 1rem;
     }
 
     footer {
-      text-align: center;
-      padding: 2rem;
-      background: #0f3057;
+      background: var(--primary-color);
       color: white;
-    }
-
-    a {
-      color: #008891;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    header img {
-      animation: slideIn 1s ease-out forwards;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
-
 <body>
   <header>
-    <img src="your-photo.jpg" alt="Aleeza Zia">
     <h1>Aleeza Zia</h1>
-    <p>Data Analyst | Aspiring Data Scientist | Tableau Enthusiast</p>
+    <p>Data Analyst | Python, SQL, Tableau | Passionate about insights & impact</p>
+    <img src="profile.jpg" alt="Aleeza Zia Photo" />
   </header>
 
-  <section class="section">
-    <h2>Projects</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Music DNA – Personality Insights</h3>
-        <p>Used Spotify data to explore personality through audio features.</p>
-        <a href="#">View Project</a>
-      </div>
-      <div class="card">
-        <h3>Game Review Sentiment Analysis</h3>
-        <p>Performed ML-based sentiment analysis on detective games from Play Store.</p>
-        <a href="#">View Project</a>
-      </div>
-      <div class="card">
-        <h3>Climate Change in Chakwal</h3>
-        <p>Analyzed 20+ years of NASA climate data for local environmental insights.</p>
-        <a href="#">View Project</a>
-      </div>
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I’m a data analyst from Pakistan with a background in Mathematics and over five years of tutoring experience. I’m passionate about transforming data into actionable insights and currently exploring opportunities in the UK.</p>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Tableau Visualizations</h2>
-    <ul>
-      <li><a href="#">Automobile Sales Dashboard</a></li>
-      <li><a href="#">SpaceX Launch Dashboard</a></li>
-      <li><a href="#">Solar Energy Analysis</a></li>
-    </ul>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3>Sentiment Analysis of Mobile Detective Games</h3>
+      <p>Web-scraped and analyzed reviews using Logistic Regression and LDA topic modeling. Visualized with Tableau and Python.</p>
+    </div>
+    <div class="card">
+      <h3>Climate Trends in Chakwal</h3>
+      <p>Used NASA POWER data to analyze temperature, rainfall, and solar energy trends. Visualized insights for local planning.</p>
+    </div>
   </section>
 
-  <section class="section">
+  <section id="tableau">
+    <h2>Tableau Work</h2>
+    <div class="card">
+      <p>Visual dashboards including automobile sales during recessions and Chakwal climate analysis.</p>
+      <p><a href="#" target="_blank">View Tableau Dashboards</a></p>
+    </div>
+  </section>
+
+  <section id="certifications">
     <h2>Certifications</h2>
-    <ul>
-      <li>Google Data Analytics Certificate</li>
-      <li>ASU TESOL Professional Certificate</li>
-      <li>IBM Data Science Professional Certificate</li>
-    </ul>
+    <div class="card">
+      <ul>
+        <li>Google Data Analytics Professional Certificate</li>
+        <li>IBM Data Science Professional Certificate</li>
+        <li>TESOL Certificate from Arizona State University</li>
+      </ul>
+    </div>
   </section>
 
-  <section class="section">
+  <section id="blog">
     <h2>Blog</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Why Data Storytelling Matters</h3>
-        <p>How data visualization can turn raw data into impactful insights.</p>
-        <a href="#">Read More</a>
-      </div>
-      <div class="card">
-        <h3>Exploring Solar Potential in Chakwal</h3>
-        <p>Insights from long-term weather and solar irradiance data.</p>
-        <a href="#">Read More</a>
-      </div>
+    <div class="card">
+      <p>Coming soon: Tutorials, analysis breakdowns, and learning journey posts.</p>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Aleeza Zia. All Rights Reserved.</p>
+    <p>&copy; 2025 Aleeza Zia. All rights reserved.</p>
   </footer>
 </body>
-
 </html>
