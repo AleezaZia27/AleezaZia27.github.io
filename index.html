@@ -1,113 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I’m Aleeza Zia | Data Analyst Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I am Aleeza Zia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-    body {
       font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
       background-color: #0e0e0e;
       color: #ffffff;
-      overflow-x: hidden;
     }
+
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 10%;
-      background-color: #000000;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-    }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 30px;
-      color: #ffffff;
-      letter-spacing: 2px;
-    }
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      margin-left: 30px;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #f5a623;
-    }
-    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Aleeza Zia.jpg') no-repeat center center/cover;
       height: 100vh;
-      background-image: url('Aleeza%20Zia.jpg');
-      background-size: cover;
-      background-position: center;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 0 20px;
+      position: relative;
     }
-    .hero h1 {
-      font-size: 60px;
-      color: white;
-      font-family: 'Playfair Display', serif;
+
+    header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
-    .hero p {
-      font-size: 22px;
+
+    header p {
+      font-size: 1.5rem;
       margin-top: 10px;
-      color: #f5f5f5;
     }
-    section {
-      padding: 100px 10%;
-    }
-    .section-title {
-      font-size: 36px;
-      color: #f5a623;
-      margin-bottom: 40px;
-    }
-    .section-bg {
-      background-color: #1b1b1b;
-      padding: 40px;
-      border-radius: 20px;
-    }
-    .visuals, .blog, .projects, .certifications, .tableau {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 50px;
+      display: flex;
       gap: 30px;
     }
-    .card {
-      background-color: #121212;
-      padding: 20px;
-      border-radius: 15px;
-      color: #eee;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
     }
-    .card img {
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: white;
+      bottom: -5px;
+      left: 0;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover::after {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
     }
+
+    .section {
+      padding: 100px 50px;
+      background-color: #121212;
+    }
+
+    .section:nth-child(even) {
+      background-color: #1e1e1e;
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .section-content img {
+      max-width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .section-content img:hover {
+      transform: scale(1.05);
+    }
+
     footer {
-      background-color: #000;
       text-align: center;
-      padding: 40px;
-      color: #ccc;
-      font-size: 14px;
+      padding: 50px;
+      background-color: #0a0a0a;
+      font-size: 1rem;
     }
-    @media(max-width: 768px){
-      .hero h1 {
-        font-size: 38px;
-      }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      border: 2px solid white;
+      padding: 5px 10px;
+      border-radius: 5px;
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="logo">AZ</div>
@@ -115,82 +132,58 @@
       <a href="#home">Home</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a>
       <a href="#tableau">Tableau</a>
+      <a href="#certifications">Certifications</a>
       <a href="#blog">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
+    <h1>I am Aleeza Zia</h1>
+    <p>Data Analyst | Researcher | Storyteller in Data</p>
   </header>
 
-  <section class="hero" id="home">
-    <div>
-      <h1>I’m Aleeza Zia</h1>
-      <p>Data Analyst | Machine Learning Enthusiast | Researcher</p>
+  <section class="section" id="experience">
+    <h2>Experience</h2>
+    <div class="section-content">
+      <img src="experience.jpg" alt="Experience">
     </div>
   </section>
 
-  <section id="experience">
-    <h2 class="section-title">About Me</h2>
-    <div class="section-bg">
-      <p>I am Aleeza Zia, a passionate Data Analyst from Pakistan with a BS in Mathematics from the University of Chakwal. I have 5+ years of teaching experience and a deep interest in Data Science, Analytics, and AI. This portfolio showcases my projects, Tableau dashboards, certifications, and blog writings.</p>
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="section-content">
+      <img src="projects.jpg" alt="Projects">
     </div>
   </section>
 
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <img src="project1.jpg" alt="Project 1" />
-        <p>Project 1 (placeholder)</p>
-      </div>
-      <div class="card">
-        <img src="project2.jpg" alt="Project 2" />
-        <p>Project 2 (placeholder)</p>
-      </div>
+  <section class="section" id="tableau">
+    <h2>Tableau Dashboards</h2>
+    <div class="section-content">
+      <img src="tableau.jpg" alt="Tableau Dashboard">
     </div>
   </section>
 
-  <section id="certifications">
-    <h2 class="section-title">Certifications</h2>
-    <div class="certifications">
-      <div class="card">
-        <img src="certification1.jpg" alt="Certification 1" />
-        <p>Certification 1 (placeholder)</p>
-      </div>
+  <section class="section" id="certifications">
+    <h2>Certifications</h2>
+    <div class="section-content">
+      <img src="certifications.jpg" alt="Certifications">
     </div>
   </section>
 
-  <section id="tableau">
-    <h2 class="section-title">Tableau Dashboards</h2>
-    <div class="tableau">
-      <div class="card">
-        <img src="tableau1.jpg" alt="Tableau 1" />
-        <p>Dashboard 1 (placeholder)</p>
-      </div>
+  <section class="section" id="blog">
+    <h2>Blog</h2>
+    <div class="section-content">
+      <img src="blog1.jpg" alt="Blog">
     </div>
   </section>
 
-  <section id="blog">
-    <h2 class="section-title">Blog</h2>
-    <div class="blog">
-      <div class="card">
-        <img src="blog1.jpg" alt="Blog 1" />
-        <p>Blog Post 1</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2 class="section-title">Contact Me</h2>
-    <div class="section-bg">
-      <p>Email: aleezazia.data@gmail.com</p>
-      <p>LinkedIn: linkedin.com/in/aleezazia</p>
-      <p>GitHub: github.com/aleezazia</p>
-    </div>
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>Email: aleeza.zia@example.com | LinkedIn: linkedin.com/in/aleeza-zia</p>
   </section>
 
   <footer>
     &copy; 2025 Aleeza Zia. All Rights Reserved.
   </footer>
 </body>
+
 </html>
