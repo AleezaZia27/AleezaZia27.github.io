@@ -1,194 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I am Aleeza Zia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --main-color: #000;
-            --accent-color: #c39eff;
-            --text-color: #ffffff;
-            --light-text: #aaaaaa;
-            --font-title: 'Playfair Display', serif;
-            --font-body: 'Open Sans', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--main-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        header {
-            background-image: url('Aleeza Zia.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-
-        header::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        header h1 {
-            font-size: 4rem;
-            z-index: 2;
-            font-family: var(--font-title);
-        }
-
-        .logo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 3;
-            font-size: 2rem;
-            font-family: var(--font-title);
-            color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        section h2 {
-            font-family: var(--font-title);
-            font-size: 3rem;
-            margin-bottom: 30px;
-            color: var(--accent-color);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background-color: #111;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card p {
-            padding: 20px;
-            font-size: 1rem;
-            color: var(--light-text);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            background: #111;
-            color: var(--light-text);
-        }
-
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I’m Aleeza Zia | Data Analyst Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0e0e0e;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background-color: #000000;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      color: #ffffff;
+      letter-spacing: 2px;
+    }
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      margin-left: 30px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f5a623;
+    }
+    .hero {
+      height: 100vh;
+      background-image: url('Aleeza%20Zia.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 60px;
+      color: white;
+      font-family: 'Playfair Display', serif;
+    }
+    .hero p {
+      font-size: 22px;
+      margin-top: 10px;
+      color: #f5f5f5;
+    }
+    section {
+      padding: 100px 10%;
+    }
+    .section-title {
+      font-size: 36px;
+      color: #f5a623;
+      margin-bottom: 40px;
+    }
+    .section-bg {
+      background-color: #1b1b1b;
+      padding: 40px;
+      border-radius: 20px;
+    }
+    .visuals, .blog, .projects, .certifications, .tableau {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background-color: #121212;
+      padding: 20px;
+      border-radius: 15px;
+      color: #eee;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 40px;
+      color: #ccc;
+      font-size: 14px;
+    }
+    @media(max-width: 768px){
+      .hero h1 {
+        font-size: 38px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <header>
-        <div class="logo">AZ</div>
-        <h1>I am Aleeza Zia</h1>
-    </header>
+  <header>
+    <div class="logo">AZ</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#tableau">Tableau</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Data Analyst passionate about transforming data into actionable insights. Skilled in data visualization, storytelling, and analysis with tools like Python, SQL, Excel, and Tableau.</p>
-    </section>
+  <section class="hero" id="home">
+    <div>
+      <h1>I’m Aleeza Zia</h1>
+      <p>Data Analyst | Machine Learning Enthusiast | Researcher</p>
+    </div>
+  </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="project1.jpg" alt="Project 1">
-                <p>Project Title 1 - Short description goes here.</p>
-            </div>
-            <div class="card">
-                <img src="project2.jpg" alt="Project 2">
-                <p>Project Title 2 - Short description goes here.</p>
-            </div>
-        </div>
-    </section>
+  <section id="experience">
+    <h2 class="section-title">About Me</h2>
+    <div class="section-bg">
+      <p>I am Aleeza Zia, a passionate Data Analyst from Pakistan with a BS in Mathematics from the University of Chakwal. I have 5+ years of teaching experience and a deep interest in Data Science, Analytics, and AI. This portfolio showcases my projects, Tableau dashboards, certifications, and blog writings.</p>
+    </div>
+  </section>
 
-    <section id="tableau">
-        <h2>Tableau Work</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="tableau1.jpg" alt="Tableau 1">
-                <p>Sales Dashboard - Tableau interactive sales analysis.</p>
-            </div>
-        </div>
-    </section>
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <img src="project1.jpg" alt="Project 1" />
+        <p>Project 1 (placeholder)</p>
+      </div>
+      <div class="card">
+        <img src="project2.jpg" alt="Project 2" />
+        <p>Project 2 (placeholder)</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="cert1.jpg" alt="Certification">
-                <p>Google Data Analytics Certificate</p>
-            </div>
-        </div>
-    </section>
+  <section id="certifications">
+    <h2 class="section-title">Certifications</h2>
+    <div class="certifications">
+      <div class="card">
+        <img src="certification1.jpg" alt="Certification 1" />
+        <p>Certification 1 (placeholder)</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="blog">
-        <h2>Blog</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="blog1.jpg" alt="Blog">
-                <p>Latest Trends in Data Science and AI Applications</p>
-            </div>
-        </div>
-    </section>
+  <section id="tableau">
+    <h2 class="section-title">Tableau Dashboards</h2>
+    <div class="tableau">
+      <div class="card">
+        <img src="tableau1.jpg" alt="Tableau 1" />
+        <p>Dashboard 1 (placeholder)</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: aleeza.zia@example.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/aleeza-zia">linkedin.com/in/aleeza-zia</a></p>
-        <p>GitHub: <a href="https://github.com/aleezazia">github.com/aleezazia</a></p>
-    </section>
+  <section id="blog">
+    <h2 class="section-title">Blog</h2>
+    <div class="blog">
+      <div class="card">
+        <img src="blog1.jpg" alt="Blog 1" />
+        <p>Blog Post 1</p>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Aleeza Zia. All rights reserved.</p>
-    </footer>
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="section-bg">
+      <p>Email: aleezazia.data@gmail.com</p>
+      <p>LinkedIn: linkedin.com/in/aleezazia</p>
+      <p>GitHub: github.com/aleezazia</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Aleeza Zia. All Rights Reserved.
+  </footer>
 </body>
-
 </html>
