@@ -1,139 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aleeza Zia | Data Analyst Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Aleeza Zia | Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #1e293b;
-      --accent-color: #38bdf8;
-      --background: #f8fafc;
-      --text-color: #0f172a;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: var(--background);
-      color: var(--text-color);
+      background-color: #0f172a;
+      color: #f8fafc;
       line-height: 1.6;
     }
 
     header {
-      background: var(--primary-color);
-      color: white;
-      padding: 2rem;
       text-align: center;
-      position: relative;
+      padding: 60px 20px 30px;
     }
 
-    header img {
+    .profile-photo {
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
-      width: 140px;
-      height: 140px;
       object-fit: cover;
-      border: 4px solid var(--accent-color);
-      margin-top: 1rem;
+      border: 5px solid #facc15;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 10px;
+      color: #facc15;
     }
 
     h2 {
-      font-size: 1.8rem;
-      margin-top: 2rem;
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 0.3rem;
-      color: var(--primary-color);
+      color: #a5f3fc;
+    }
+
+    nav {
+      text-align: center;
+      background: #1e293b;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #f8fafc;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #facc15;
     }
 
     section {
-      padding: 2rem;
+      padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
     }
 
     .card {
-      background: white;
-      padding: 1rem;
-      border-radius: 1rem;
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
-      margin-top: 1rem;
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     footer {
-      background: var(--primary-color);
-      color: white;
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      padding: 20px;
+      background: #1e293b;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #facc15;
+      color: #0f172a;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #fde047;
     }
   </style>
 </head>
+
 <body>
   <header>
+    <img src="Aleeza%20Zia.jpg" alt="Aleeza Zia" class="profile-photo">
     <h1>Aleeza Zia</h1>
-    <p>Data Analyst | Python, SQL, Tableau | Passionate about insights & impact</p>
-    <img src="aleeza-zia.jpg" alt="Aleeza Zia" class="profile-photo" />
+    <h2>Data Analyst | Data Science Enthusiast</h2>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>I’m a data analyst from Pakistan with a background in Mathematics and over five years of tutoring experience. I’m passionate about transforming data into actionable insights and currently exploring opportunities in the UK.</p>
-    </div>
-  </section>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#tableau">Tableau</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#blog">Blog</a>
+  </nav>
 
   <section id="projects">
-    <h2>Projects</h2>
     <div class="card">
-      <h3>Sentiment Analysis of Mobile Detective Games</h3>
-      <p>Web-scraped and analyzed reviews using Logistic Regression and LDA topic modeling. Visualized with Tableau and Python.</p>
-    </div>
-    <div class="card">
-      <h3>Climate Trends in Chakwal</h3>
-      <p>Used NASA POWER data to analyze temperature, rainfall, and solar energy trends. Visualized insights for local planning.</p>
+      <h2>Projects</h2>
+      <p>Explore my recent data analysis projects in Python, SQL, and machine learning. Click the button below to see full details.</p>
+      <a href="#" class="btn">View Projects</a>
     </div>
   </section>
 
   <section id="tableau">
-    <h2>Tableau Work</h2>
     <div class="card">
-      <p>Visual dashboards including automobile sales during recessions and Chakwal climate analysis.</p>
-      <p><a href="#" target="_blank">View Tableau Dashboards</a></p>
+      <h2>Tableau Visualizations</h2>
+      <p>Interactive dashboards on climate, sales, and public datasets.</p>
+      <a href="#" class="btn">View Tableau</a>
     </div>
   </section>
 
   <section id="certifications">
-    <h2>Certifications</h2>
     <div class="card">
+      <h2>Certifications</h2>
       <ul>
-        <li>Google Data Analytics Professional Certificate</li>
+        <li>Google Data Analytics</li>
         <li>IBM Data Science Professional Certificate</li>
-        <li>TESOL Certificate from Arizona State University</li>
+        <li>TESOL (Arizona State University)</li>
       </ul>
     </div>
   </section>
 
   <section id="blog">
-    <h2>Blog</h2>
     <div class="card">
-      <p>Coming soon: Tutorials, analysis breakdowns, and learning journey posts.</p>
+      <h2>Blog</h2>
+      <p>Coming soon: posts on data visualization, cleaning messy data, and tips for aspiring analysts.</p>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Aleeza Zia. All rights reserved.</p>
+    &copy; 2025 Aleeza Zia. All rights reserved.
   </footer>
 </body>
+
 </html>
