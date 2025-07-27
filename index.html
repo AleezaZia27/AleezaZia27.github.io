@@ -1,157 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aleeza Zia | Data Analyst</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     body {
-      background-color: #0f172a;
-      color: #f8fafc;
+      background-color: #0e0e0e;
+      color: #f4f4f4;
       line-height: 1.6;
     }
 
     header {
+      height: 100vh;
+      background: url('Aleeza%20Zia.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 60px 20px 30px;
+      background-blend-mode: darken;
+      background-color: rgba(0,0,0,0.6);
     }
 
-    .profile-photo {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #facc15;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      margin-bottom: 20px;
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #facc15;
-    }
-
-    h2 {
-      color: #a5f3fc;
-    }
-
-    nav {
-      text-align: center;
-      background: #1e293b;
-      padding: 10px;
-    }
-
-    nav a {
-      color: #f8fafc;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: #facc15;
+    header p {
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
     }
 
     section {
-      padding: 40px 20px;
+      padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
     }
 
-    .card {
-      background: #1e293b;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #ff9900;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #1e293b;
-      color: #94a3b8;
-      font-size: 0.9rem;
+    .project-grid, .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
     }
 
     .btn {
       display: inline-block;
-      padding: 10px 20px;
-      background: #facc15;
-      color: #0f172a;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      background-color: #ff9900;
+      color: #000;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 5px;
       font-weight: bold;
-      transition: background 0.3s;
     }
 
-    .btn:hover {
-      background: #fde047;
+    footer {
+      background-color: #111;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
-
 <body>
   <header>
-    <img src="Aleeza%20Zia.jpg" alt="Aleeza Zia" class="profile-photo">
-    <h1>Aleeza Zia</h1>
-    <h2>Data Analyst | Data Science Enthusiast</h2>
+    <div>
+      <h1>Aleeza Zia</h1>
+      <p>Data Analyst | Portfolio</p>
+    </div>
   </header>
 
-  <nav>
-    <a href="#projects">Projects</a>
-    <a href="#tableau">Tableau</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#blog">Blog</a>
-  </nav>
-
   <section id="projects">
-    <div class="card">
-      <h2>Projects</h2>
-      <p>Explore my recent data analysis projects in Python, SQL, and machine learning. Click the button below to see full details.</p>
-      <a href="#" class="btn">View Projects</a>
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="card">
+        <h3>Sentiment Analysis of Mystery Games</h3>
+        <p>Machine learning-based sentiment & topic analysis of mobile detective game reviews.</p>
+        <a href="#" class="btn">View Project</a>
+      </div>
+      <div class="card">
+        <h3>Climate Analysis of Chakwal</h3>
+        <p>NASA data analysis for solar energy potential and extreme weather trends in Chakwal.</p>
+        <a href="#" class="btn">View Project</a>
+      </div>
     </div>
   </section>
 
   <section id="tableau">
-    <div class="card">
-      <h2>Tableau Visualizations</h2>
-      <p>Interactive dashboards on climate, sales, and public datasets.</p>
-      <a href="#" class="btn">View Tableau</a>
+    <h2>Tableau Dashboards</h2>
+    <div class="project-grid">
+      <div class="card">
+        <h3>Automobile Sales Dashboard</h3>
+        <p>Visualization of sales, consumer confidence & recession impact using Plotly + Tableau.</p>
+        <a href="#" class="btn">View Dashboard</a>
+      </div>
     </div>
   </section>
 
   <section id="certifications">
-    <div class="card">
-      <h2>Certifications</h2>
-      <ul>
-        <li>Google Data Analytics</li>
-        <li>IBM Data Science Professional Certificate</li>
-        <li>TESOL (Arizona State University)</li>
-      </ul>
+    <h2>Certifications</h2>
+    <div class="cert-grid">
+      <div class="card">
+        <h3>Google Data Analytics</h3>
+        <p>Foundations of data analytics, cleaning, visualization and case studies.</p>
+        <a href="#" class="btn">View Certificate</a>
+      </div>
+      <div class="card">
+        <h3>TESOL Professional Certificate</h3>
+        <p>ASU-certified teaching certification to deliver English language instruction.</p>
+        <a href="#" class="btn">View Certificate</a>
+      </div>
     </div>
   </section>
 
   <section id="blog">
+    <h2>Blog</h2>
     <div class="card">
-      <h2>Blog</h2>
-      <p>Coming soon: posts on data visualization, cleaning messy data, and tips for aspiring analysts.</p>
+      <h3>Why Data Analysis is Important in Education</h3>
+      <p>Exploring how data-driven decisions can improve teaching, student outcomes, and curriculum design.</p>
+      <a href="#" class="btn">Read Blog</a>
     </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: aleeza@example.com</p>
+    <p>Location: Chakwal, Pakistan</p>
   </section>
 
   <footer>
     &copy; 2025 Aleeza Zia. All rights reserved.
   </footer>
 </body>
-
 </html>
