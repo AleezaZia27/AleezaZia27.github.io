@@ -2,102 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aleeza Zia | Data Science Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aleeza Zia – Portfolio</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f5f7fa;
+      background: #f9f9f9;
       color: #333;
     }
+
     header {
-      background: #2d3e50;
+      background-color: #0a192f;
       color: white;
-      padding: 40px 20px;
+      padding: 50px 20px 30px;
       text-align: center;
+      position: relative;
     }
+
+    header img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #64ffda;
+      margin-bottom: 20px;
+    }
+
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 36px;
     }
+
+    header p {
+      font-size: 18px;
+      color: #a8b2d1;
+    }
+
     nav {
-      text-align: center;
-      padding: 10px;
-      background: #1c2833;
+      margin-top: 15px;
     }
+
     nav a {
-      color: #fff;
-      margin: 0 15px;
+      margin: 0 12px;
+      color: #64ffda;
       text-decoration: none;
       font-weight: bold;
     }
+
     section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px 20px;
     }
+
     h2 {
-      color: #2d3e50;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      font-size: 28px;
     }
+
+    .project-card {
+      background-color: white;
+      border-left: 5px solid #64ffda;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.02);
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: #0077cc;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
     footer {
+      background-color: #0a192f;
+      color: #fff;
       text-align: center;
       padding: 20px;
-      background: #2d3e50;
-      color: white;
+      margin-top: 40px;
     }
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #007acc;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 10px;
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Aleeza Zia</h1>
-    <p>Data Science Enthusiast | Mathematics Graduate | Aspiring Analyst</p>
-  </header>
-
+<header>
+  <img src="profile.jpg" alt="Aleeza Zia Profile Photo">
+  <h1>Aleeza Zia</h1>
+  <p>Mathematics Graduate | Data Analyst | Tableau & Python Enthusiast</p>
   <nav>
-    <a href="#about">About Me</a>
     <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <a href="#tableau">Tableau</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#blogs">Blogs</a>
   </nav>
+</header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm Aleeza Zia, a Mathematics graduate from the University of Chakwal with a passion for data science, analytics, and research. I have five years of tutoring experience and am currently exploring opportunities in data analysis and machine learning. I'm also passionate about environmental topics and love applying data to real-world problems.
-    </p>
-    <a class="button" href="mailto:aleeza@example.com">Email Me</a>
-  </section>
+<section id="projects">
+  <h2>Projects</h2>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Climate & Solar Energy Analysis in Chakwal</strong> – Analyzed 24 years of NASA data to explore climate change and solar energy trends.</li>
-      <li><strong>Mobile Game Review Sentiment Analysis</strong> – Built a machine learning model to analyze app reviews using NLP, classification, and topic modeling.</li>
-      <li><strong>TESOL Data Visualizations</strong> – Created educational dashboards and visual storytelling for TESOL certification assignments.</li>
-    </ul>
-    <a class="button" href="https://github.com/AleezaZia27" target="_blank">View My GitHub</a>
-  </section>
+  <div class="project-card">
+    <h3>🎮 Detective Game Review Analysis</h3>
+    <p>Performed sentiment analysis and topic modeling on 700+ mobile game reviews. Built ML models and a dashboard.</p>
+    <a href="https://github.com/AleezaZia27/mystery-games-analysis" target="_blank">View on GitHub</a>
+  </div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:aleeza@example.com">aleeza@example.com</a></p>
-    <p>🌐 LinkedIn: <a href="https://www.linkedin.com/in/your-profile" target="_blank">Your LinkedIn Profile</a></p>
-  </section>
+  <div class="project-card">
+    <h3>📊 Automobile Sales Dashboard</h3>
+    <p>Created an interactive dashboard using Dash to visualize sales patterns during recession vs normal years.</p>
+    <a href="https://github.com/AleezaZia27/automobile-sales-dashboard" target="_blank">View on GitHub</a>
+  </div>
 
-  <footer>
-    &copy; 2025 Aleeza Zia | Built with GitHub Pages
-  </footer>
+  <div class="project-card">
+    <h3>☀️ Climate Study: Chakwal</h3>
+    <p>Analyzed 20+ years of solar and weather data to explore renewable energy potential in Chakwal.</p>
+    <a href="https://github.com/AleezaZia27/chakwal-climate-study" target="_blank">View on GitHub</a>
+  </div>
+</section>
+
+<section id="tableau">
+  <h2>Tableau Work</h2>
+  <ul>
+    <li><a href="https://public.tableau.com/app/profile/aleeza.zia" target="_blank">My Tableau Public Profile</a></li>
+    <li><a href="https://public.tableau.com/views/AutomobileSalesDashboard/Dashboard1" target="_blank">Automobile Sales Dashboard</a></li>
+  </ul>
+</section>
+
+<section id="certifications">
+  <h2>Certifications</h2>
+  <ul>
+    <li>IBM Data Science Professional Certificate</li>
+    <li>Google Data Analytics Certificate</li>
+    <li>TESOL Certificate – Arizona State University</li>
+  </ul>
+</section>
+
+<section id="blogs">
+  <h2>Blogs</h2>
+  <ul>
+    <li><a href="#">Why I Chose Data Science – Coming Soon</a></li>
+    <li><a href="#">Using Data to Understand Climate – Coming Soon</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2025 Aleeza Zia – All Rights Reserved</p>
+</footer>
 
 </body>
 </html>
