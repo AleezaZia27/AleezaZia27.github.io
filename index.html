@@ -1,43 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aleeza Zia | Data Analyst</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aleeza Zia | Data Analyst Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background-color: #0e0e0e;
-      color: #f4f4f4;
+      background-color: #0a0a0a;
+      color: #f5f5f5;
       line-height: 1.6;
     }
 
     header {
       height: 100vh;
-      background: url('Aleeza%20Zia.jpg') center/cover no-repeat;
+      background: url('background-hero.jpg') no-repeat center center/cover;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       text-align: center;
-      background-blend-mode: darken;
-      background-color: rgba(0,0,0,0.6);
+      padding: 2rem;
     }
 
     header h1 {
       font-size: 3rem;
       font-weight: 700;
+      margin-bottom: 1rem;
     }
 
     header p {
-      font-size: 1.5rem;
-      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    nav {
+      background-color: #111;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
     }
 
     section {
@@ -46,129 +65,113 @@
       margin: auto;
     }
 
-    h2 {
+    section h2 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
-      color: #ff9900;
-    }
-
-    .project-grid, .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      color: #00ffc3;
     }
 
     .card {
-      background-color: #1e1e1e;
+      background: #1a1a1a;
       padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-    }
-
-    .card h3 {
+      border-radius: 10px;
       margin-bottom: 1rem;
-      font-size: 1.25rem;
+      box-shadow: 0 0 15px rgba(0,255,195,0.1);
     }
 
-    .btn {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      margin-top: 1rem;
-      background-color: #ff9900;
-      color: #000;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     footer {
-      background-color: #111;
-      padding: 2rem;
+      background: #111;
       text-align: center;
+      padding: 2rem;
       font-size: 0.9rem;
-      color: #aaa;
+      color: #777;
     }
 
-    @media screen and (max-width: 768px) {
+    @media (max-width: 768px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
-      header p {
-        font-size: 1rem;
+      nav {
+        flex-direction: column;
+        gap: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div>
-      <h1>Aleeza Zia</h1>
-      <p>Data Analyst | Portfolio</p>
-    </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#tableau">Tableau</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header id="home">
+    <h1>Aleeza Zia</h1>
+    <p>Data Analyst | Insights from Numbers | Passionate about Data, Tech, and Storytelling</p>
   </header>
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="card">
-        <h3>Sentiment Analysis of Mystery Games</h3>
-        <p>Machine learning-based sentiment & topic analysis of mobile detective game reviews.</p>
-        <a href="#" class="btn">View Project</a>
-      </div>
-      <div class="card">
-        <h3>Climate Analysis of Chakwal</h3>
-        <p>NASA data analysis for solar energy potential and extreme weather trends in Chakwal.</p>
-        <a href="#" class="btn">View Project</a>
-      </div>
+    <div class="card">
+      <h3>Music DNA – Personality from Music Taste</h3>
+      <p>Explored Spotify audio features to predict personality & mood from music preferences.</p>
+    </div>
+    <div class="card">
+      <h3>Mystery Games Sentiment Analysis</h3>
+      <p>Used web scraping, LDA, and ML models to analyze sentiment and extract themes in game reviews.</p>
     </div>
   </section>
 
   <section id="tableau">
     <h2>Tableau Dashboards</h2>
-    <div class="project-grid">
-      <div class="card">
-        <h3>Automobile Sales Dashboard</h3>
-        <p>Visualization of sales, consumer confidence & recession impact using Plotly + Tableau.</p>
-        <a href="#" class="btn">View Dashboard</a>
-      </div>
+    <div class="card">
+      <h3>Climate Trends in Chakwal</h3>
+      <p>Visualized NASA POWER data to explore solar energy potential and weather patterns.</p>
+    </div>
+    <div class="card">
+      <h3>SpaceX Launch Dashboard</h3>
+      <p>Used Plotly and Dash to explore launch success rates, orbits, and payloads.</p>
     </div>
   </section>
 
   <section id="certifications">
     <h2>Certifications</h2>
-    <div class="cert-grid">
-      <div class="card">
-        <h3>Google Data Analytics</h3>
-        <p>Foundations of data analytics, cleaning, visualization and case studies.</p>
-        <a href="#" class="btn">View Certificate</a>
-      </div>
-      <div class="card">
-        <h3>TESOL Professional Certificate</h3>
-        <p>ASU-certified teaching certification to deliver English language instruction.</p>
-        <a href="#" class="btn">View Certificate</a>
-      </div>
+    <div class="card">
+      <p>Google Data Analytics Professional Certificate</p>
+      <p>ASU TESOL Professional Certificate</p>
+      <p>IBM Data Science Fundamentals</p>
     </div>
   </section>
 
   <section id="blog">
     <h2>Blog</h2>
     <div class="card">
-      <h3>Why Data Analysis is Important in Education</h3>
-      <p>Exploring how data-driven decisions can improve teaching, student outcomes, and curriculum design.</p>
-      <a href="#" class="btn">Read Blog</a>
+      <h3>Solving Mysteries with Code</h3>
+      <p>Behind the scenes of my machine learning analysis of detective games.</p>
+    </div>
+    <div class="card">
+      <h3>Gardening with Data</h3>
+      <p>My personal passion meets analytics: Predicting plant health in home gardens.</p>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: aleeza@example.com</p>
-    <p>Location: Chakwal, Pakistan</p>
+    <div class="contact">
+      <p>Email: aleezazia@gmail.com</p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/aleezazia" style="color:#00ffc3;">linkedin.com/in/aleezazia</a></p>
+      <p>Resume: <a href="#" style="color:#00ffc3;">Download PDF</a></p>
+    </div>
   </section>
 
   <footer>
