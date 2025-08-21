@@ -1,240 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aleeza Zia Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aleeza Zia - Portfolio</title>
 
-  <!-- Google Fonts (Montserrat like template) -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
-
     body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
       color: #fff;
-      background: #000;
-      line-height: 1.6;
+      background-color: #111;
+      overflow-x: hidden;
     }
 
-    /* Navbar */
-    nav {
+    header {
       position: fixed;
       top: 0;
       width: 100%;
+      padding: 20px 60px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
       z-index: 1000;
       background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
     }
 
-    nav h1 {
-      font-size: 22px;
+    header h1 {
       font-weight: 700;
-      color: #00ff6c;
+      font-size: 28px;
+      color: #00ff84;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-
-    nav ul li a {
+    nav a {
+      margin: 0 15px;
       text-decoration: none;
       font-size: 16px;
-      color: #fff;
       font-weight: 500;
-      transition: 0.3s;
+      color: #fff;
+      transition: color 0.3s;
     }
 
-    nav ul li a:hover {
-      color: #00ff6c;
+    nav a:hover {
+      color: #00ff84;
     }
 
-    /* Hero Section */
-    .hero {
-      height: 100vh;
-      background: url('bg1.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      animation: fadeInUp 1.5s ease;
-    }
-
-    .hero-content img {
-      width: 150px;
-      border-radius: 50%;
-      border: 3px solid #00ff6c;
-      margin-bottom: 20px;
-    }
-
-    .hero-content h2 {
-      font-size: 45px;
-      font-weight: 700;
-    }
-
-    .hero-content h2 span {
-      color: #00ff6c;
-    }
-
-    .hero-content p {
-      margin-top: 10px;
-      font-size: 20px;
-      font-weight: 300;
-      color: #ccc;
-    }
-
-    /* Section Base */
     section {
       min-height: 100vh;
-      padding: 100px 60px;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       text-align: center;
+      position: relative;
+      background-size: cover;
+      background-position: center;
     }
 
-    section::after {
+    section::before {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
     }
 
     section .content {
       position: relative;
-      z-index: 1;
-      max-width: 900px;
-      margin: auto;
-      animation: fadeIn 2s ease;
+      z-index: 2;
+      max-width: 800px;
+      animation: fadeInUp 1.2s ease forwards;
     }
 
     section h2 {
-      font-size: 38px;
-      margin-bottom: 20px;
+      font-size: 52px;
       font-weight: 700;
+      margin-bottom: 20px;
     }
 
     section p {
       font-size: 18px;
-      color: #ddd;
+      line-height: 1.6;
+      font-weight: 300;
     }
 
-    /* Backgrounds */
-    #about { background: url('bg2.jpg') center/cover no-repeat; }
-    #experience { background: url('bg3.jpg') center/cover no-repeat; }
-    #portfolio { background: url('blog1.jpg') center/cover no-repeat; }
-    #contact { background: url('contact-bg.jpg') center/cover no-repeat; }
+    /* Hero section with profile photo */
+    #home {
+      background-image: url('bg1.jpg');
+    }
+
+    #home .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid #00ff84;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    /* Portfolio */
+    #portfolio {
+      background-image: url('bg2.jpg');
+    }
+
+    /* Blog */
+    #blog {
+      background-image: url('blog1.jpg');
+    }
+
+    /* Contact */
+    #contact {
+      background-image: url('contact-bg.jpg');
+    }
 
     /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(50px); }
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #000;
-      color: #777;
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav>
+
+  <!-- Header -->
+  <header>
     <h1>Aleeza Zia</h1>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">Experience</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <img src="myphoto.jpg" alt="Aleeza Zia">
-      <h2>I'm Aleeza Zia<span>.</span></h2>
-      <p>Data Analyst | Mathematics Graduate | Researcher</p>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
+  <!-- Home -->
+  <section id="home">
     <div class="content">
-      <h2>About Me</h2>
-      <p>I am a passionate data analyst with a background in Mathematics. I specialize in extracting insights from data, creating interactive dashboards, and applying machine learning to solve real-world problems.</p>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience">
-    <div class="content">
-      <h2>Experience</h2>
-      <p>5+ years of teaching experience in Mathematics and hands-on experience with data analysis projects including visualization, dashboard creation, and predictive modeling.</p>
+      <img src="aleeza-zia.jpg" alt="Aleeza Zia" class="profile-pic">
+      <h2>I'm Aleeza Zia<span style="color:#00ff84;">.</span></h2>
+      <p>Aspiring Data Analyst | Mathematics Graduate | Passionate about Data Science & Visualization</p>
     </div>
   </section>
 
   <!-- Portfolio -->
   <section id="portfolio">
     <div class="content">
-      <h2>Portfolio</h2>
-      <p>My projects include Sentiment Analysis, Climate Change Data Visualization, Music DNA personality insights, and more. Full details coming soon.</p>
+      <h2>My Projects</h2>
+      <p>Tableau dashboards, Machine Learning projects, and Data Science case studies.</p>
     </div>
   </section>
 
   <!-- Blog -->
-  <section id="blog" style="background: #111;">
+  <section id="blog">
     <div class="content">
       <h2>Blog</h2>
-      <p>I write about data science, analytics, and my personal learning journey. Stay tuned for my upcoming posts.</p>
+      <p>Insights on Data Science, Technology, and Analytics.</p>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact">
     <div class="content">
-      <h2>Contact</h2>
+      <h2>Contact Me</h2>
       <p>Email: aleezazia@example.com</p>
-      <p>Location: Pakistan</p>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Aleeza Zia | All Rights Reserved</p>
-  </footer>
 </body>
 </html>
