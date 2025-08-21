@@ -6,11 +6,11 @@
 <title>Aleeza Zia – UX / Data Portfolio</title>
 <style>
   :root{
-    --bg:#404b59;          /* slate/blue gray base like Wix */
-    --panel:#2f3a4a;       /* darker panel */
+    --bg:#404b59;          
+    --panel:#2f3a4a;       
     --text:#ffffff;
     --muted:#c9d1dc;
-    --accent:#20d66b;      /* neon green accent */
+    --accent:#20d66b;      
     --accent-2:#0cc35a;
     --shadow:0 10px 30px rgba(0,0,0,.25);
   }
@@ -18,7 +18,7 @@
   html,body{margin:0;height:100%;scroll-behavior:smooth;background:#2e3643}
   body{font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;color:var(--text)}
   a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
+  img{max-width:100%;display:block;border-radius:10px}
 
   /* ====== Top Bar ====== */
   .nav{
@@ -28,25 +28,24 @@
     backdrop-filter:saturate(120%) blur(6px);
   }
   .nav-inner{width:min(1200px,92%); display:flex; align-items:center; gap:24px}
-  .brand{font-weight:800; letter-spacing:.08em}
-  .dot{display:inline-grid; place-items:center; width:34px; height:34px; border-radius:999px;
-       color:var(--accent); position:relative; margin-right:10px; font-weight:800}
-  .dot::before{content:""; position:absolute; inset:-6px; border-radius:999px;
-               border:3px solid var(--accent); opacity:.7}
+  .brand{font-weight:800; letter-spacing:.08em; display:flex; align-items:center}
+  .logo{
+    width:36px; height:36px; border-radius:50%;
+    background:var(--accent); color:#0b1b12; font-weight:900;
+    display:flex; align-items:center; justify-content:center;
+    margin-right:10px; box-shadow:0 0 8px rgba(32,214,107,.6);
+  }
   .nav ul{margin-left:auto; display:flex; gap:34px; list-style:none}
   .nav a{opacity:.85; font-weight:600}
   .nav a:hover{opacity:1; color:var(--accent)}
 
-  /* ====== Hero (split like Wix) ====== */
+  /* ====== Hero ====== */
   .hero{
-    margin-top:70px;             /* push below nav */
+    margin-top:70px;             
     min-height:92vh; display:grid; grid-template-columns:1.15fr .85fr;
     background:var(--bg);
   }
-  /* left panel text */
-  .hero-text{
-    display:grid; place-content:center; padding:clamp(24px,6vw,80px);
-  }
+  .hero-text{display:grid; place-content:center; padding:clamp(24px,6vw,80px)}
   .eyebrow{font-weight:900; letter-spacing:.35em; opacity:.9}
   .hero h1{font-size:clamp(40px,7vw,86px); line-height:1.02; margin:.2em 0 .35em}
   .hero h1 .accent{color:var(--accent)}
@@ -59,17 +58,15 @@
   }
   .cta:hover{background:var(--accent); color:#10231a}
 
-  /* right half photo background (your aleeza-zia.jpg BEHIND) */
   .hero-photo{
     position:relative; overflow:hidden;
     background:linear-gradient(to right, rgba(64,75,89,.25), rgba(64,75,89,.25)),
                url('aleeza-zia.jpg') center right / cover no-repeat;
     filter:saturate(90%);
   }
-  /* small collage tiles on the right edge like Wix */
   .photo-collage{
-    position:absolute; right:20px; top:50%; translate:0 -50%;
-    width:min(32vw,320px); display:grid; gap:14px;
+    position:absolute; right:20px; bottom:20px;
+    width:min(40vw,380px); display:grid; gap:14px;
     grid-template-columns:1fr 1fr;
   }
   .tile{aspect-ratio:1/1; border-radius:10px; overflow:hidden;
@@ -78,9 +75,9 @@
   .t2{background:url('bg3.jpg') center/cover}
   .t3{background:url('blog1.jpg') center/cover}
   .t4{background:linear-gradient(135deg, rgba(32,214,107,.15), rgba(32,214,107,.35));
-      display:grid; place-items:center; font-weight:800; color:#0a1e14}
+      display:grid; place-items:center; font-weight:800; color:#0a1e14; font-size:1.2rem}
 
-  /* ====== Section Shell (Experience, Portfolio, Contact) ====== */
+  /* ====== Sections ====== */
   section{padding:clamp(56px,8vw,96px) 0; background:var(--panel)}
   .wrap{width:min(1200px,92%); margin:auto}
   .h{font-size:clamp(28px,4vw,44px); margin-bottom:.6em}
@@ -94,7 +91,7 @@
   .pill{display:inline-block; padding:.25em .6em; border-radius:999px;
         border:1px solid rgba(255,255,255,.18); font-size:.8rem; opacity:.9; margin-right:.35rem}
 
-  /* Portfolio */
+  /* Portfolio (5 projects now) */
   .folio{display:grid; gap:18px; grid-template-columns:repeat(12, 1fr)}
   .folio a{grid-column:span 4; position:relative; overflow:hidden; border-radius:12px; border:1px solid rgba(255,255,255,.08)}
   .folio a::after{content:""; position:absolute; inset:0; box-shadow:inset 0 -120px 180px rgba(0,0,0,.65)}
@@ -112,10 +109,8 @@
   .btn{background:var(--accent); color:#0b1b12; border:0; font-weight:800; padding:14px 18px; border-radius:10px; cursor:pointer}
   .btn:hover{background:var(--accent-2)}
 
-  /* Footer */
   footer{background:#161c25; color:var(--muted); padding:26px 0; text-align:center}
 
-  /* ====== Responsive ====== */
   @media (max-width: 980px){
     .hero{grid-template-columns:1fr}
     .hero-photo{min-height:62vh}
@@ -135,7 +130,7 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <div class="brand"><span class="dot">R</span> UX / UI</div>
+      <div class="brand"><div class="logo">AZ</div> Aleeza Zia</div>
       <ul>
         <li><a href="#home">HOME</a></li>
         <li><a href="#experience">EXPERIENCE</a></li>
@@ -148,11 +143,11 @@
   <!-- HERO -->
   <header id="home" class="hero">
     <div class="hero-text">
-      <div class="eyebrow">I'M</div>
+      <div class="eyebrow">HELLO, I'M</div>
       <h1><span class="accent">A</span>LEEZA<br>ZIA</h1>
       <p class="sub">
-        Data Analyst & UX-minded educator crafting clean visuals and
-        human-friendly insights. I build dashboards, tidy datasets, and design simple, usable experiences.
+        Data Analyst & UX-minded educator creating insights and designing
+        human-friendly digital experiences. Skilled in Python, dashboards, and storytelling with data.
       </p>
       <a class="cta" href="Aleeza_Zia_Resume.pdf" download>DOWNLOAD RESUME</a>
     </div>
@@ -170,12 +165,11 @@
   <section id="experience">
     <div class="wrap">
       <h2 class="h">Experience</h2>
-      <p class="muted" style="margin-bottom:22px">Recent roles & focus areas.</p>
       <div class="exp-grid">
         <article class="card">
           <span class="pill">Data Analysis</span><span class="pill">Python</span>
           <h3>Data Analyst – Freelance</h3>
-          <p class="muted">Built automated cleaning pipelines and interactive visuals (Pandas, Plotly) for climate and education datasets.</p>
+          <p class="muted">Built automated pipelines and interactive visuals for climate and education datasets.</p>
         </article>
         <article class="card">
           <span class="pill">Teaching</span><span class="pill">Research</span>
@@ -196,18 +190,11 @@
     <div class="wrap">
       <h2 class="h">Portfolio</h2>
       <div class="folio">
-        <a href="#" aria-label="Project 1">
-          <img src="bg2.jpg" alt="Project preview 1">
-          <span>Sales Forecasting</span>
-        </a>
-        <a href="#" aria-label="Project 2">
-          <img src="bg3.jpg" alt="Project preview 2">
-          <span>Climate Dashboard</span>
-        </a>
-        <a href="#" aria-label="Project 3">
-          <img src="blog1.jpg" alt="Project preview 3">
-          <span>AB Testing Report</span>
-        </a>
+        <a href="#"><img src="bg2.jpg" alt=""><span>Sales Forecasting</span></a>
+        <a href="#"><img src="bg3.jpg" alt=""><span>Climate Dashboard</span></a>
+        <a href="#"><img src="blog1.jpg" alt=""><span>AB Testing Report</span></a>
+        <a href="#"><img src="project4.jpg" alt=""><span>Student Performance ML</span></a>
+        <a href="#"><img src="project5.jpg" alt=""><span>Interactive Survey Analysis</span></a>
       </div>
     </div>
   </section>
@@ -216,7 +203,6 @@
   <section id="contact" class="contact">
     <div class="wrap">
       <h2 class="h">Contact</h2>
-      <p class="muted" style="margin-bottom:18px">Have a project or role in mind? Let’s talk.</p>
       <form action="https://formspree.io/f/your-id" method="POST">
         <input name="name" placeholder="Your name" required />
         <input name="email" type="email" placeholder="Your email" required />
@@ -227,11 +213,10 @@
   </section>
 
   <footer>
-    © <span id="y"></span> Aleeza Zia — Inspired by the Wix UX Designer layout
+    © <span id="y"></span> Aleeza Zia — Portfolio
   </footer>
 
 <script>
-  // year
   document.getElementById('y').textContent = new Date().getFullYear();
 </script>
 </body>
