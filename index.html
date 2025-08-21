@@ -2,194 +2,208 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aleeza Zia Portfolio</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Google Fonts (Montserrat like template) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
     }
 
     body {
-      font-family: 'Open Sans', sans-serif;
-      color: white;
-      background-color: #0e0e0e;
+      color: #fff;
+      background: #000;
       line-height: 1.6;
     }
 
-    header {
-      position: relative;
-      height: 100vh;
-      background: url('bg1.jpg') no-repeat center center/cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-    }
-
+    /* Navbar */
     nav {
-      position: absolute;
+      position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 50px;
-      z-index: 10;
+      padding: 20px 60px;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.6);
     }
 
-    nav .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: bold;
-      color: #fff;
-      border: 2px solid #fff;
-      border-radius: 50%;
-      padding: 10px 18px;
+    nav h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #00ff6c;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 30px;
     }
 
     nav ul li a {
       text-decoration: none;
+      font-size: 16px;
       color: #fff;
       font-weight: 500;
-      font-size: 16px;
-      transition: color 0.3s ease;
+      transition: 0.3s;
     }
 
     nav ul li a:hover {
-      color: #00ff88;
+      color: #00ff6c;
     }
 
-    .hero-text {
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('bg1.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       position: relative;
-      z-index: 5;
     }
 
-    .hero-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 64px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .hero-text h1 span {
-      color: #00ff88;
-    }
-
-    .hero-text p {
-      font-size: 20px;
-      margin-top: 15px;
-      color: #ddd;
-    }
-
-    .green-dot {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      background: #00ff88;
-      border-radius: 50%;
-      margin-left: 10px;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.6; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    section {
-      padding: 100px 15%;
-      position: relative;
-      background-size: cover;
-      background-position: center;
-    }
-
-    section::before {
+    .hero::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .hero-content img {
+      width: 150px;
+      border-radius: 50%;
+      border: 3px solid #00ff6c;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h2 {
+      font-size: 45px;
+      font-weight: 700;
+    }
+
+    .hero-content h2 span {
+      color: #00ff6c;
+    }
+
+    .hero-content p {
+      margin-top: 10px;
+      font-size: 20px;
+      font-weight: 300;
+      color: #ccc;
+    }
+
+    /* Section Base */
+    section {
+      min-height: 100vh;
+      padding: 100px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+    }
+
+    section::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
     }
 
     section .content {
       position: relative;
-      z-index: 5;
+      z-index: 1;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeIn 2s ease;
     }
 
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 40px;
+    section h2 {
+      font-size: 38px;
       margin-bottom: 20px;
+      font-weight: 700;
     }
 
-    p {
-      max-width: 800px;
-      margin-bottom: 20px;
+    section p {
+      font-size: 18px;
+      color: #ddd;
     }
 
     /* Backgrounds */
-    #experience { background-image: url('bg2.jpg'); }
-    #portfolio { background-image: url('bg3.jpg'); }
-    #blog { background-image: url('blog1.jpg'); }
-    #contact { background-image: url('contact-bg.jpg'); }
+    #about { background: url('bg2.jpg') center/cover no-repeat; }
+    #experience { background: url('bg3.jpg') center/cover no-repeat; }
+    #portfolio { background: url('blog1.jpg') center/cover no-repeat; }
+    #contact { background: url('contact-bg.jpg') center/cover no-repeat; }
 
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Footer */
     footer {
-      background: #111;
       text-align: center;
       padding: 20px;
-      font-size: 14px;
-      color: #aaa;
+      background: #000;
+      color: #777;
     }
   </style>
 </head>
 <body>
-
-  <!-- Navigation -->
+  <!-- Navbar -->
   <nav>
-    <div class="logo">AZ</div>
+    <h1>Aleeza Zia</h1>
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#experience">Experience</a></li>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">Experience</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#blog">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Hero Section -->
-  <header id="home">
-    <div class="hero-text">
-      <h1>I'm Aleeza Zia<span class="green-dot"></span></h1>
-      <p>Data Analyst | Aspiring Data Scientist | Educator</p>
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <img src="myphoto.jpg" alt="Aleeza Zia">
+      <h2>I'm Aleeza Zia<span>.</span></h2>
+      <p>Data Analyst | Mathematics Graduate | Researcher</p>
     </div>
-  </header>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="content">
+      <h2>About Me</h2>
+      <p>I am a passionate data analyst with a background in Mathematics. I specialize in extracting insights from data, creating interactive dashboards, and applying machine learning to solve real-world problems.</p>
+    </div>
+  </section>
 
   <!-- Experience -->
   <section id="experience">
     <div class="content">
       <h2>Experience</h2>
-      <p>With 5 years of tutoring experience and a BS in Mathematics, I combine analytical thinking with practical insights. Currently advancing my journey towards Data Science with strong interests in analytics, visualization, and research.</p>
+      <p>5+ years of teaching experience in Mathematics and hands-on experience with data analysis projects including visualization, dashboard creation, and predictive modeling.</p>
     </div>
   </section>
 
@@ -197,15 +211,15 @@
   <section id="portfolio">
     <div class="content">
       <h2>Portfolio</h2>
-      <p>Projects, Tableau Dashboards, and Certifications will be uploaded here soon.</p>
+      <p>My projects include Sentiment Analysis, Climate Change Data Visualization, Music DNA personality insights, and more. Full details coming soon.</p>
     </div>
   </section>
 
   <!-- Blog -->
-  <section id="blog">
+  <section id="blog" style="background: #111;">
     <div class="content">
       <h2>Blog</h2>
-      <p>Sharing thoughts on data, analytics, and technology. Blog posts will appear here.</p>
+      <p>I write about data science, analytics, and my personal learning journey. Stay tuned for my upcoming posts.</p>
     </div>
   </section>
 
@@ -214,14 +228,13 @@
     <div class="content">
       <h2>Contact</h2>
       <p>Email: aleezazia@example.com</p>
-      <p>LinkedIn: linkedin.com/in/aleezazia</p>
-      <p>GitHub: github.com/aleezazia</p>
+      <p>Location: Pakistan</p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Aleeza Zia. All rights reserved.</p>
+    <p>© 2025 Aleeza Zia | All Rights Reserved</p>
   </footer>
 </body>
 </html>
