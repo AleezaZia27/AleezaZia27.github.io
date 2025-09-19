@@ -22,9 +22,16 @@ st.set_page_config(
 # -------------------------------
 @st.cache_data
 def load_data():
+    # Path relative to the repo
+    file_path = os.path.join(
+        "projects",
+        "Chakwal_Climate_Solar_Trends",
+        "POWER_Point_Daily_20000101_20241231_032d93N_072d86E_LST.csv"
+    )
+
     df = pd.read_csv(
-        r"C:/Users/PMLS/POWER_Point_Daily_20000101_20241231_032d93N_072d86E_LST.csv",
-        skiprows=32
+        file_path,
+        skiprows=32  # skipping metadata rows in NASA POWER CSV
     )
 
     for col in ["YEAR", "MO", "DY"]:
