@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Aleeza Zia – UX / Data Portfolio</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand"><div class="logo">AZ</div> Aleeza Zia</div>
+      <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#resume">RESUME</a></li>
+        <li><a href="#certifications">CERTIFICATIONS</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#dashboards">DASHBOARDS</a></li>
+        <li><a href="#blogs">BLOGS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="hero-text">
+      <div class="eyebrow">HELLO, I'M</div>
+      <h1><span class="accent">A</span>LEEZA<br>ZIA</h1>
+      <p class="sub">
+        Data Analyst & UX-minded educator creating insights and designing
+        human-friendly digital experiences. Skilled in Python, dashboards, and storytelling with data.
+      </p>
+      <a class="cta" href="Aleeza_Zia_Resume.pdf" download>DOWNLOAD RESUME</a>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-collage">
+        <div class="tile t1"></div>
+        <div class="tile t2"></div>
+        <div class="tile t3"></div>
+        <div class="tile t4">2025</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="wrap">
+      <h2 class="h">Resume</h2>
+      <p class="muted">
+        Download my detailed resume here:
+        <a href="Aleeza_Zia_Resume.pdf" target="_blank">View Resume (PDF)</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="wrap">
+      <h2 class="h">Certifications</h2>
+      <div class="exp-grid">
+        <article class="card">
+          <h3>Google Data Analytics</h3>
+          <p class="muted">Professional Certificate</p>
+        </article>
+        <article class="card">
+          <h3>Tableau Analyst</h3>
+          <p class="muted">Interactive Dashboards</p>
+        </article>
+        <article class="card">
+          <h3>Python for Data Science</h3>
+          <p class="muted">Applied Projects</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <h2 class="h">Projects</h2>
+      <div class="folio">
+        <a href="chakwal-climate/"><img src="bg2.jpg" alt=""><span>Chakwal Climate</span></a>
+        <a href="global-superstore/"><img src="bg3.jpg" alt=""><span>Global Superstore</span></a>
+        <a href="psl-analysis/"><img src="blog1.jpg" alt=""><span>PSL Analysis</span></a>
+        <a href="solar-trends/"><img src="project4.jpg" alt=""><span>Solar Trends</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARDS -->
+  <section id="dashboards">
+    <div class="wrap">
+      <h2 class="h">Dashboards</h2>
+      <div class="folio">
+        <a href="chakwal-dashboard-link"><img src="bg2.jpg" alt=""><span>Chakwal Dashboard</span></a>
+        <a href="psl-dashboard-link"><img src="bg3.jpg" alt=""><span>PSL Dashboard</span></a>
+        <a href="superstore-dashboard-link"><img src="blog1.jpg" alt=""><span>Superstore Dashboard</span></a>
+        <a href="solar-dashboard-link"><img src="project4.jpg" alt=""><span>Solar Dashboard</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOGS -->
+  <section id="blogs">
+    <div class="wrap">
+      <h2 class="h">Blogs</h2>
+      <p class="muted">Coming soon: my writings on data, UX, and education.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2 class="h">Contact</h2>
+      <form action="https://formspree.io/f/your-id" method="POST">
+        <input name="name" placeholder="Your name" required />
+        <input name="email" type="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Tell me about your project…" required></textarea>
+        <button class="btn" type="submit">SEND MESSAGE</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Aleeza Zia — Portfolio
+  </footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
