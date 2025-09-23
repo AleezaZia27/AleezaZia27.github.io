@@ -199,24 +199,25 @@ footer{background:#161c25; color:var(--muted); padding:26px 0; text-align:center
 /* Blog Cards */
 .blog-grid {
   display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(3,1fr);
-  margin-top: 20px;
+  gap: 24px; /* slightly larger horizontal & vertical gap */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* responsive columns */
+  margin-top: 30px; /* a bit more breathing room */
 }
 
 .blog-card {
-  background: #243042;
-  border: 1px solid rgba(255,255,255,.06);
+  background: #2a394e; /* slightly lighter to stand out from dark background */
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* subtle shadow */
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .blog-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* lift effect */
 }
 
 .blog-card img {
@@ -227,19 +228,27 @@ footer{background:#161c25; color:var(--muted); padding:26px 0; text-align:center
 }
 
 .blog-card-content {
-  padding: 16px 20px;
+  padding: 18px 22px; /* slightly more padding for readability */
   flex: 1;
 }
 
 .blog-card-content h3 {
   margin: 0.2em 0 0.5em;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  color: #fff; /* ensure heading stands out */
 }
 
 .blog-card-content p {
   color: var(--muted);
   font-size: 0.95rem;
-  line-height: 1.4;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .blog-grid {
+    grid-template-columns: 1fr; /* stack cards vertically */
+  }
 }
 
 /* Project Overlay */
