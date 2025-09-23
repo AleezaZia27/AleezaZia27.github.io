@@ -1,11 +1,11 @@
 :root{
-  --bg:#f5f6fa;           /* soft off-white background */
+  --bg:#f4f4f9;           /* soft neutral background */
   --panel:#ffffff;        /* section & card background */
-  --text:#1e1e2f;         /* main text color */
-  --muted:#6c6c80;        /* secondary/muted text */
-  --accent:#4f46e5;       /* modern vibrant blue accent */
-  --accent-2:#6366f1;     /* lighter blue for hover */
-  --shadow:0 10px 30px rgba(0,0,0,.12); /* softer shadow for modern look */
+  --text:#1b1b1f;         /* main text color */
+  --muted:#6b6b78;        /* secondary/muted text */
+  --accent:#10b981;       /* modern teal/green accent */
+  --accent-2:#06a873;     /* slightly darker teal for hover */
+  --shadow:0 10px 30px rgba(0,0,0,.12); /* soft shadow */
 }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;scroll-behavior:smooth;background:var(--bg)}
@@ -26,7 +26,7 @@ img{max-width:100%;display:block;border-radius:10px}
   width:36px; height:36px; border-radius:50%;
   background:var(--accent); color:#ffffff; font-weight:900;
   display:flex; align-items:center; justify-content:center;
-  margin-right:10px; box-shadow:0 0 8px rgba(79,70,229,.6);
+  margin-right:10px; box-shadow:0 0 8px rgba(16,185,129,.6);
 }
 .nav ul{margin-left:auto; display:flex; gap:34px; list-style:none}
 .nav a{opacity:.85; font-weight:600}
@@ -38,9 +38,9 @@ img{max-width:100%;display:block;border-radius:10px}
   min-height:92vh; 
   display:grid; 
   grid-template-columns:1.15fr .85fr;
-  background: linear-gradient(rgba(245,246,250,0.75), rgba(245,246,250,0.75)), 
+  background: linear-gradient(rgba(244,244,249,0.5), rgba(244,244,249,0.5)), 
               url('aleeza-zia.jpg') center center / cover no-repeat;
-  background-attachment: fixed; /* parallax effect */
+  background-attachment: fixed;
 }
 .hero-text{display:grid; place-content:center; padding:clamp(24px,6vw,80px)}
 .eyebrow{font-weight:900; letter-spacing:.35em; opacity:.9}
@@ -66,7 +66,7 @@ section{
 
 /* Experience / Certifications cards */
 .exp-grid{display:grid; gap:18px; grid-template-columns:repeat(3,1fr)}
-.card{background:#f9f9fc; border:1px solid rgba(0,0,0,.08);
+.card{background:#ffffff; border:1px solid rgba(0,0,0,.08);
       padding:22px; border-radius:14px; box-shadow:var(--shadow)}
 .card h3{margin:.2em 0 .3em}
 .pill{display:inline-block; padding:.25em .6em; border-radius:999px;
@@ -90,7 +90,7 @@ section{
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0));
+  background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0));
   pointer-events: none;
 }
 .folio img {
@@ -116,7 +116,7 @@ section{
 }
 
 /* Contact */
-.contact{background:#f0f2f7; text-align:center}
+.contact{background:#f4f4f9; text-align:center}
 form{display:grid; gap:14px; max-width:720px; margin:auto}
 input, textarea{
   background:#ffffff; color:var(--text); border:1px solid rgba(0,0,0,.12);
@@ -155,7 +155,7 @@ textarea{min-height:140px; resize:vertical}
 }
 .social-icon:hover svg { fill: #ffffff; }
 
-footer{background:#f5f6fa; color:var(--muted); padding:26px 0; text-align:center}
+footer{background:#f4f4f9; color:var(--muted); padding:26px 0; text-align:center}
 
 /* Certifications Section Buttons */
 .cert-btn, .badge-btn {
@@ -185,7 +185,7 @@ footer{background:#f5f6fa; color:var(--muted); padding:26px 0; text-align:center
 }
 .blog-card {
   background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,.08);
   border-radius: 14px;
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -220,7 +220,7 @@ footer{background:#f5f6fa; color:var(--muted); padding:26px 0; text-align:center
 .project-card .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.45);
   color: #ffffff;
   display: flex;
   justify-content: center;
