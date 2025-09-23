@@ -106,16 +106,90 @@ textarea{min-height:140px; resize:vertical}
 
 footer{background:#161c25; color:var(--muted); padding:26px 0; text-align:center}
 
-/* Responsive */
+/* ------------------------------
+   Certifications Section Buttons
+------------------------------- */
+.cert-btn, .badge-btn {
+  display: inline-block;
+  margin: 10px 10px 20px 0;
+  padding: 12px 24px;
+  background-color: var(--accent);
+  color: #0b1b12;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  box-shadow: var(--shadow);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cert-btn:hover, .badge-btn:hover {
+  background-color: var(--accent-2);
+  color: #0b1b12;
+}
+
+/* ------------------------------
+   Blog Cards / Section
+------------------------------- */
+.blog-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3,1fr);
+  margin-top: 20px;
+}
+
+.blog-card {
+  background: #243042;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-card-content {
+  padding: 16px 20px;
+  flex: 1;
+}
+
+.blog-card-content h3 {
+  margin: 0.2em 0 0.5em;
+  font-size: 1.1rem;
+}
+
+.blog-card-content p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments for blogs and certifications */
 @media (max-width: 980px){
   .hero{grid-template-columns:1fr}
   .hero-photo{min-height:62vh}
   .photo-collage{display:none}
   .exp-grid{grid-template-columns:1fr 1fr}
   .folio a{grid-column:span 6}
+  .blog-grid { grid-template-columns: 1fr 1fr; }
 }
+
 @media (max-width: 640px){
   .nav ul{gap:18px}
   .exp-grid{grid-template-columns:1fr}
   .folio a{grid-column:span 12}
+  .cert-btn, .badge-btn { width: 100%; text-align: center; }
+  .blog-grid { grid-template-columns: 1fr; }
 }
