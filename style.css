@@ -91,32 +91,41 @@ textarea{min-height:140px; resize:vertical}
 .btn:hover{background:var(--accent-2)}
 
 /* Social Icons */
-.social-icons {
-  margin-top: 28px;
+/* Social Links */
+.social-links {
+  margin-top: 24px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 18px;
 }
 
-.social-icons a {
-  width: 44px;
-  height: 44px;
+.social-icon {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: #131a24;
-  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
   box-shadow: var(--shadow);
-  transition: background 0.3s, color 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
 }
 
-.social-icons a:hover {
-  background: var(--accent);
-  color: #0b1b12;
-  transform: translateY(-4px);
+.social-icon svg {
+  width: 20px;   /* controls icon size */
+  height: 20px;
+  fill: var(--accent); /* color of the icon */
 }
+
+.social-icon:hover {
+  background: var(--accent);
+  transform: translateY(-3px);
+}
+
+.social-icon:hover svg {
+  fill: #0b1b12; /* dark text on hover */
+}
+
 
 footer{background:#161c25; color:var(--muted); padding:26px 0; text-align:center}
 
