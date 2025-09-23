@@ -35,8 +35,12 @@ img{max-width:100%;display:block;border-radius:10px}
 /* HERO */
 .hero{
   margin-top:70px;             
-  min-height:92vh; display:grid; grid-template-columns:1.15fr .85fr;
-  background:var(--bg);
+  min-height:92vh; 
+  display:grid; 
+  grid-template-columns:1.15fr .85fr;
+  background: linear-gradient(rgba(46,54,67,0.75), rgba(46,54,67,0.75)), 
+              url('aleeza-zia.jpg') center center / cover no-repeat;
+  background-attachment: fixed; /* parallax effect */
 }
 .hero-text{display:grid; place-content:center; padding:clamp(24px,6vw,80px)}
 .eyebrow{font-weight:900; letter-spacing:.35em; opacity:.9}
@@ -50,24 +54,6 @@ img{max-width:100%;display:block;border-radius:10px}
   box-shadow:var(--shadow)
 }
 .cta:hover{background:var(--accent); color:#10231a}
-.hero-photo{
-  position:relative; overflow:hidden;
-  background:linear-gradient(to right, rgba(64,75,89,.25), rgba(64,75,89,.25)),
-             url('aleeza-zia.jpg') center right / cover no-repeat;
-  filter:saturate(90%);
-}
-.photo-collage{
-  position:absolute; right:20px; bottom:20px;
-  width:min(40vw,380px); display:grid; gap:14px;
-  grid-template-columns:1fr 1fr;
-}
-.tile{aspect-ratio:1/1; border-radius:10px; overflow:hidden;
-      box-shadow:0 12px 24px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.12)}
-.t1{background:url('bg2.jpg') center/cover}
-.t2{background:url('bg3.jpg') center/cover}
-.t3{background:url('blog1.jpg') center/cover}
-.t4{background:linear-gradient(135deg, rgba(32,214,107,.15), rgba(32,214,107,.35));
-    display:grid; place-items:center; font-weight:800; color:#0a1e14; font-size:1.2rem}
 
 /* SECTIONS */
 section{
@@ -220,8 +206,6 @@ footer{background:#161c25; color:var(--muted); padding:26px 0; text-align:center
 /* Responsive adjustments for blogs and certifications */
 @media (max-width: 980px){
   .hero{grid-template-columns:1fr}
-  .hero-photo{min-height:62vh}
-  .photo-collage{display:none}
   .exp-grid{grid-template-columns:1fr 1fr}
   .folio a{grid-column:span 6}
   .blog-grid { grid-template-columns: 1fr 1fr; }
