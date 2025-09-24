@@ -1,3 +1,6 @@
+/* Import Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
+
 :root{
   --bg:#1e1e2f;            /* page background */
   --panel:#2a2c3c;         /* cards & sections */
@@ -41,12 +44,14 @@ img{max-width:100%;display:block;border-radius:10px;}
 .hero{
   margin-top:70px;             
   min-height:92vh; 
+  padding-bottom:60px; /* added bottom spacing to prevent overlap */
   display:grid; 
   grid-template-columns:1.15fr .85fr;
   background: linear-gradient(rgba(30,30,47,0.65), rgba(30,30,47,0.65)), /* increased opacity */
               url('aleeza-zia.webp') center center / cover no-repeat;
   background-attachment: fixed;
   position: relative; /* ensure layering works */
+  overflow: hidden;   /* prevent overlap */
 }
 .hero-text{
   display:grid; 
@@ -100,6 +105,12 @@ section{
   flex-direction:column;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
+/* Fix for project card span positioning */
+.project-card {
+  position: relative; /* ensures overlay & span are anchored */
+}
+
 .card h3, .folio span, .blog-card-content h3, .project-card span { margin:.3em 0; }
 .card:hover, .folio a:hover, .project-card:hover, .blog-card:hover {
   transform: translateY(-6px);
