@@ -16,6 +16,62 @@
 <meta property="og:image" content="https://aleezazia27.github.io/aleeza-zia.webp">
 <meta property="og:url" content="https://aleezazia27.github.io/">
 <meta name="twitter:card" content="summary_large_image">
+
+<style>
+/* Scroll Animation Base */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.6, 0.05, 0.01, 0.9);
+}
+
+/* Active state when in viewport */
+.animate-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Hero Text Animation (premium) */
+.hero-text.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: all 1.2s cubic-bezier(0.6, 0.05, 0.01, 0.9);
+}
+
+.hero-text.animate-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Section Titles */
+section h2.h.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.9s cubic-bezier(0.6, 0.05, 0.01, 0.9);
+}
+
+section h2.h.animate-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Cards / Project Cards / Blog Cards */
+.card.animate-on-scroll,
+.project-card.animate-on-scroll,
+.blog-card.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.9s cubic-bezier(0.6, 0.05, 0.01, 0.9);
+}
+
+.card.animate-on-scroll.active,
+.project-card.animate-on-scroll.active,
+.blog-card.animate-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+</style>
+
 </head>
 <body>
 
@@ -38,8 +94,8 @@
   </nav>
 
   <!-- HERO / PHOTO -->
-<header id="home" class="hero">
-  <div class="hero-text">
+<header id="home" class="hero animate-on-scroll">
+  <div class="hero-text animate-on-scroll">
     <div class="eyebrow">HELLO, I'M</div>
     <h1><span class="accent">A</span>leeza<br>Zia</h1>
     <p class="sub">
@@ -53,22 +109,19 @@
   <div class="hero-photo"></div>
 </header>
 
-
   <!-- CERTIFICATIONS -->
   <section id="certifications">
     <div class="wrap">
-      <h2 class="h">Certifications</h2>
-      <p class="muted">
+      <h2 class="h animate-on-scroll">Certifications</h2>
+      <p class="muted animate-on-scroll">
         All my certifications are verified and available for viewing. You can also see all my verified badges on Credly.
       </p>
       
-      <!-- GitHub folder link -->
-      <a href="https://github.com/AleezaZia27/AleezaZia27.github.io/tree/main/certifications" target="_blank" class="cert-btn">
+      <a href="https://github.com/AleezaZia27/AleezaZia27.github.io/tree/main/certifications" target="_blank" class="cert-btn animate-on-scroll">
         View All Certifications
       </a>
 
-      <!-- Credly link -->
-      <a href="https://www.credly.com/users/aleeza-zia" target="_blank" class="badge-btn">
+      <a href="https://www.credly.com/users/aleeza-zia" target="_blank" class="badge-btn animate-on-scroll">
         View All Badges
       </a>
     </div>
@@ -77,15 +130,13 @@
   <!-- PROJECTS -->
 <section id="projects">
   <div class="wrap">
-    <h2 class="h">Projects</h2>
-    
-    <p class="muted">
+    <h2 class="h animate-on-scroll">Projects</h2>
+    <p class="muted animate-on-scroll">
       Each project includes a comprehensive Jupyter Notebook containing detailed analysis, visualizations, and dashboard code. Explore the full implementation and datasets on GitHub to understand how insights were derived from raw data.
     </p>
     
       <div class="folio">
-        <!-- Project 1: Chakwal Climate -->
-        <a href="https://github.com/AleezaZia27/AleezaZia27.github.io/tree/main/projects/Chakwal_Climate_Solar_Trends" target="_blank" class="project-card">
+        <a href="https://github.com/AleezaZia27/AleezaZia27.github.io/tree/main/projects/Chakwal_Climate_Solar_Trends" target="_blank" class="project-card animate-on-scroll">
           <img src="projects/Chakwal_Climate_Solar_Trends/Katas_Raj_Chakwal.webp" alt="Chakwal Climate and Solar Trends Dashboard" loading="lazy">
           <span>Chakwal Climate and Solar Trends</span>
           <div class="overlay">
@@ -93,8 +144,7 @@
           </div>
         </a>
 
-        <!-- Project 2: Global Superstore -->
-        <a href="https://github.com/AleezaZia27/AleezaZia27.github.io/tree/main/projects/Global_Superstore_Analysis" target="_blank" class="project-card">
+        <a href="https://github.com/AleezaZia27/AleezaZia27.github.io/tree/main/projects/Global_Superstore_Analysis" target="_blank" class="project-card animate-on-scroll">
           <img src="projects/Global_Superstore_Analysis/Global_Superstore_Title_Image.webp" alt="Global Superstore Analytics Project" loading="lazy">
           <span>Global Superstore Analytics Project</span>
           <div class="overlay">
@@ -102,8 +152,7 @@
           </div>
         </a>
 
-        <!-- Project 3: PSL Dashboard -->
-        <a href="https://github.com/AleezaZia27/AleezaZia27.github.io/tree/main/projects/PSL_Analysis" target="_blank" class="project-card">
+        <a href="https://github.com/AleezaZia27/AleezaZia27.github.io/tree/main/projects/PSL_Analysis" target="_blank" class="project-card animate-on-scroll">
           <img src="projects/PSL_Analysis/Cricket_Analysis_Title_Photo.webp" alt="PSL Commentary & Historical Analysis (2016–2025)" loading="lazy">
           <span>PSL Commentary & Historical Analysis (2016–2025)</span>
           <div class="overlay">
@@ -111,8 +160,7 @@
           </div>
         </a>
 
-        <!-- Project 4: Solving Mysteries -->
-        <a href="https://github.com/AleezaZia27/AleezaZia27.github.io/tree/main/projects/Solving_Mysteries_with_Code" target="_blank" class="project-card">
+        <a href="https://github.com/AleezaZia27/AleezaZia27.github.io/tree/main/projects/Solving_Mysteries_with_Code" target="_blank" class="project-card animate-on-scroll">
           <img src="projects/Solving_Mysteries_with_Code/Solving_Mysteries.webp" alt="Solving Mysteries with Code Project" loading="lazy">
           <span>Solving Mysteries with Code</span>
           <div class="overlay">
@@ -126,34 +174,30 @@
   <!-- DASHBOARDS -->
   <section id="dashboards">
     <div class="wrap">
-      <h2 class="h">Dashboards</h2>
-      <p class="muted">Interactive dashboards I built using Streamlit, Dash (Plotly), Shiny, and Tableau. Click a card to open the live dashboard in a new tab.</p>
+      <h2 class="h animate-on-scroll">Dashboards</h2>
+      <p class="muted animate-on-scroll">Interactive dashboards I built using Streamlit, Dash (Plotly), Shiny, and Tableau. Click a card to open the live dashboard in a new tab.</p>
 
       <div class="folio">
         
-        <!-- Climate Dashboard (Streamlit) -->
-        <a class="project-card" href="https://aleezazia27-climate-chakwal.streamlit.app/" target="_blank" rel="noopener noreferrer">
+        <a class="project-card animate-on-scroll" href="https://aleezazia27-climate-chakwal.streamlit.app/" target="_blank" rel="noopener noreferrer">
           <img src="projects/Chakwal_Climate_Solar_Trends/Chakwal Climate Trends Dashboard.webp" alt="Climate & Solar Trends Dashboard (Streamlit)" loading="lazy">
           <span>Climate & Solar Trends (Streamlit)</span>
           <div class="overlay"><p>Explore 25 years of Chakwal’s climate & solar insights.</p></div>
         </a>
 
-        <!-- Global Superstore Dashboard (Dash by Plotly on PythonAnywhere) -->
-        <a class="project-card" href="https://aleezazia27.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">
+        <a class="project-card animate-on-scroll" href="https://aleezazia27.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">
           <img src="projects/Global_Superstore_Analysis/Global_Superstore_Dashboard.webp" alt="Global Superstore Dashboard (Dash)" loading="lazy">
           <span>Global Superstore (Dash)</span>
           <div class="overlay"><p>Sales forecasting & KPI dashboard.</p></div>
         </a>
 
-        <!-- PSL Dashboard (Shiny) -->
-        <a class="project-card" href="https://aleezazia27.shinyapps.io/psl_performance_dashboard/" target="_blank" rel="noopener noreferrer">
+        <a class="project-card animate-on-scroll" href="https://aleezazia27.shinyapps.io/psl_performance_dashboard/" target="_blank" rel="noopener noreferrer">
           <img src="projects/PSL_Analysis/PSL_Performance_Dashboard.webp" alt="PSL Performance Dashboard (Shiny)" loading="lazy">
           <span>PSL Performance (Shiny)</span>
           <div class="overlay"><p>Interactive PSL team & player analysis.</p></div>
         </a>
 
-        <!-- Solving Mysteries Dashboard (Tableau) -->
-        <a class="project-card" href="https://public.tableau.com/app/profile/aleeza.zia/viz/Dashboard_17577775716660/Dashboard1?publish=yes" target="_blank" rel="noopener noreferrer">
+        <a class="project-card animate-on-scroll" href="https://public.tableau.com/app/profile/aleeza.zia/viz/Dashboard_17577775716660/Dashboard1?publish=yes" target="_blank" rel="noopener noreferrer">
           <img src="projects/Solving_Mysteries_with_Code/Multi_Game_Review_Dashbaord.webp" alt="Solving Mysteries Dashboard (Tableau)" loading="lazy">
           <span>Solving Mysteries (Tableau)</span>
           <div class="overlay"><p>NLP game sentiment & topic dashboard.</p></div>
@@ -166,16 +210,16 @@
   <!-- BLOGS -->
   <section id="blogs">
     <div class="wrap">
-      <h2 class="h">My Blogs</h2>
+      <h2 class="h animate-on-scroll">My Blogs</h2>
       <div class="exp-grid">
 
-        <article class="card">
+        <article class="card animate-on-scroll">
           <h3>My Certification Journey</h3>
           <p class="muted">From self-doubt to success: how I completed challenging certifications and assignments.</p>
           <a href="blogs/blog1.html" class="cta">Read More →</a>
         </article>
 
-        <article class="card">
+        <article class="card animate-on-scroll">
           <h3>What My Projects Taught Me</h3>
           <p class="muted">The lessons, struggles, and wins from building projects like climate analysis, PSL dashboards, and sentiment analysis.</p>
           <a href="blogs/blog2.html" class="cta">Read More →</a>
@@ -188,28 +232,25 @@
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <div class="wrap">
-      <h2 class="h">Get in Touch</h2>
-      <p class="muted">💡 Have a project, collaboration, or opportunity in mind? Let’s connect!</p>
+      <h2 class="h animate-on-scroll">Get in Touch</h2>
+      <p class="muted animate-on-scroll">💡 Have a project, collaboration, or opportunity in mind? Let’s connect!</p>
 
       <form action="https://formspree.io/f/meorqqbe" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message..." required></textarea>
-        <button type="submit" class="btn">Send Message</button>
+        <input type="text" name="name" placeholder="Your Name" required class="animate-on-scroll">
+        <input type="email" name="email" placeholder="Your Email" required class="animate-on-scroll">
+        <textarea name="message" placeholder="Your Message..." required class="animate-on-scroll"></textarea>
+        <button type="submit" class="btn animate-on-scroll">Send Message</button>
       </form>
       
-      <!-- Social Links -->
       <div class="social-links">
-        <a href="mailto:aleezazia27@gmail.com" target="_blank" title="Email" class="social-icon">
-          <!-- Email Icon -->
+        <a href="mailto:aleezazia27@gmail.com" target="_blank" title="Email" class="social-icon animate-on-scroll">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 
           2v12c0 1.1.9 2 2 
           2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 
           4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
 
-        <a href="https://www.linkedin.com/in/aleeza-zia27" target="_blank" title="LinkedIn" class="social-icon">
-          <!-- LinkedIn Icon -->
+        <a href="https://www.linkedin.com/in/aleeza-zia27" target="_blank" title="LinkedIn" class="social-icon animate-on-scroll">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 
           2.239-5 5v14c0 2.761 2.239 5 5 
           5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 
@@ -223,8 +264,7 @@
           0 3.601 2.002 3.601 4.604v5.591z"/></svg>
         </a>
 
-        <a href="https://github.com/AleezaZia27" target="_blank" title="GitHub" class="social-icon">
-          <!-- GitHub Icon -->
+        <a href="https://github.com/AleezaZia27" target="_blank" title="GitHub" class="social-icon animate-on-scroll">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 
           0-12 5.373-12 
           12 0 5.303 3.438 9.8 8.205 
@@ -256,6 +296,21 @@
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Scroll animation observer
+  const scrollElements = document.querySelectorAll('.animate-on-scroll');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  scrollElements.forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>
