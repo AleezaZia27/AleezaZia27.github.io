@@ -3,8 +3,8 @@
   --panel:#2a2c3c;         /* cards & sections */
   --text:#e0e0e0;          /* main text */
   --muted:#a0a0b0;         /* secondary text */
-  --accent:#7b3f00;        /* main accent (chocolate brown) */
-  --accent-2:#5c2e00;      /* hover accent (darker brown) */
+  --accent:#10b981;        /* main accent */
+  --accent-2:#06a873;      /* hover accent */
   --shadow:0 10px 30px rgba(0,0,0,.4); /* dark shadow */
 }
 
@@ -31,7 +31,7 @@ img{max-width:100%;display:block;border-radius:10px;}
   background:radial-gradient(circle at 30% 40%, #000 25%, var(--accent) 85%); /* crescent/new moon effect */
   color:#ffffff; font-weight:900;
   display:flex; align-items:center; justify-content:center;
-  margin-right:10px; box-shadow:0 0 8px rgba(123,63,0,.6);
+  margin-right:10px; box-shadow:0 0 8px rgba(16,185,129,.6);
 }
 .nav ul{margin-left:auto; display:flex; gap:34px; list-style:none;}
 .nav a{opacity:.85; font-weight:600;}
@@ -43,7 +43,7 @@ img{max-width:100%;display:block;border-radius:10px;}
   min-height:92vh; 
   display:grid; 
   grid-template-columns:1.15fr .85fr;
-  background: linear-gradient(rgba(30,30,47,0.55), rgba(30,30,47,0.55)), /* tuned opacity */
+  background: linear-gradient(rgba(30,30,47,0.65), rgba(30,30,47,0.65)), /* increased opacity */
               url('aleeza-zia.webp') center center / cover no-repeat;
   background-attachment: fixed;
   position: relative; /* ensure layering works */
@@ -55,14 +55,13 @@ img{max-width:100%;display:block;border-radius:10px;}
   position: relative;   /* fix overlap */
   z-index: 2;
 }
-.eyebrow{
-  font-weight:900; 
-  letter-spacing:.25em; 
-  opacity:.9; 
-  text-transform:uppercase;     /* ensure uppercase */
-  white-space:pre-line;         /* avoid merging */
+.eyebrow{font-weight:900; letter-spacing:.25em; opacity:.9;}
+.hero h1{
+  font-size:clamp(40px,7vw,86px);
+  line-height:1.1;
+  margin:.2em 0 .35em;
+  text-transform: uppercase;  /* Forces ALEEZA ZIA uppercase */
 }
-.hero h1{font-size:clamp(40px,7vw,86px); line-height:1.1; margin:.2em 0 .35em;}
 .hero h1 .accent{color:var(--accent);}
 .sub{max-width:46ch; color:var(--muted); font-size:clamp(14px,2.1vw,18px);}
 .cta{
