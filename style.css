@@ -48,6 +48,7 @@ img{max-width:100%;display:block;border-radius:10px;}
   grid-template-columns:1.15fr .85fr;
   position:relative; 
   background:url('aleeza-zia.webp') center center / cover no-repeat fixed;
+  z-index:1; /* keep hero above other sections */
 }
 .hero::before {
   content:"";
