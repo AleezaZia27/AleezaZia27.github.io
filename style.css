@@ -1,11 +1,11 @@
-:root{
-  --bg:#1e1e2f;            /* page background */
-  --panel:#2a2c3c;         /* cards & sections */
-  --text:#e0e0e0;          /* main text */
-  --muted:#a0a0b0;         /* secondary text */
-  --accent:#10b981;        /* main accent */
-  --accent-2:#06a873;      /* hover accent */
-  --shadow:0 10px 30px rgba(0,0,0,.4); /* dark shadow */
+:root {
+  --bg:#f9f9f9;            /* page background (light) */
+  --panel:#ffffff;         /* cards & sections */
+  --text:#333;             /* main text */
+  --muted:#666;            /* secondary text */
+  --accent:#555;           /* main accent (dark gray) */
+  --accent-2:#333;         /* hover accent (darker gray) */
+  --shadow:0 10px 25px rgba(0,0,0,.15); /* soft shadow */
 }
 
 *{box-sizing:border-box;}
@@ -21,21 +21,26 @@ img{max-width:100%;display:block;border-radius:10px;}
 .nav{
   position:fixed; inset:0 0 auto 0; height:70px; z-index:50;
   display:flex; align-items:center; justify-content:center;
-  background:rgba(30,30,47,0.95); border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(85,85,85,0.95); border-bottom:1px solid rgba(0,0,0,.06);
   backdrop-filter:saturate(120%) blur(6px);
 }
 .nav-inner{width:min(1200px,92%); display:flex; align-items:center; gap:24px;}
-.brand{font-weight:800; letter-spacing:.02em; display:flex; align-items:center;}
+.brand{font-weight:800; letter-spacing:.02em; display:flex; align-items:center; font-size:1.1rem;}
 .logo{
-  width:36px; height:36px; border-radius:50%;        /* circular logo */
-  background:radial-gradient(circle at 30% 40%, #000 25%, var(--accent) 85%); /* crescent/new moon effect */
-  color:#ffffff; font-weight:900;
-  display:flex; align-items:center; justify-content:center;
-  margin-right:10px; box-shadow:0 0 8px rgba(16,185,129,.6);
+  width:36px; height:36px; border-radius:50%;
+  background:#fff;                /* crescent base */
+  position:relative;
+  margin-right:10px;
+  box-shadow:0 0 6px rgba(0,0,0,.2);
+}
+.logo::after{
+  content:''; position:absolute; top:0; left:10px;
+  width:26px; height:36px; border-radius:50%;
+  background:var(--accent);       /* crescent shadow */
 }
 .nav ul{margin-left:auto; display:flex; gap:34px; list-style:none;}
 .nav a{opacity:.85; font-weight:600;}
-.nav a:hover{opacity:1; color:var(--accent);}
+.nav a:hover{opacity:1; color:var(--accent-2);}
 
 /* HERO */
 .hero{
@@ -43,19 +48,19 @@ img{max-width:100%;display:block;border-radius:10px;}
   min-height:92vh; 
   display:grid; 
   grid-template-columns:1.15fr .85fr;
-  background: linear-gradient(rgba(30,30,47,0.55), rgba(30,30,47,0.55)), /* tuned opacity */
+  background: linear-gradient(rgba(249,249,249,0.85), rgba(249,249,249,0.85)),
               url('aleeza-zia.webp') center center / cover no-repeat;
   background-attachment: fixed;
-  position: relative; /* ensure layering works */
+  position: relative;
 }
 .hero-text{
   display:grid; 
   place-content:center; 
   padding:clamp(24px,6vw,80px);
-  position: relative;   /* fix overlap */
+  position: relative;
   z-index: 2;
 }
-.eyebrow{font-weight:900; letter-spacing:.25em; opacity:.9;}
+.eyebrow{font-weight:700; letter-spacing:.25em; opacity:.7; text-transform:uppercase;}
 .hero h1{font-size:clamp(40px,7vw,86px); line-height:1.1; margin:.2em 0 .35em;}
 .hero h1 .accent{color:var(--accent);}
 .sub{max-width:46ch; color:var(--muted); font-size:clamp(14px,2.1vw,18px);}
@@ -64,6 +69,7 @@ img{max-width:100%;display:block;border-radius:10px;}
   border:2px solid var(--accent); color:var(--text);
   padding:14px 22px; border-radius:8px; font-weight:700; letter-spacing:.02em;
   box-shadow:var(--shadow);
+  transition:all .3s;
 }
 .cta:hover{background:var(--accent); color:#ffffff;}
 
@@ -73,7 +79,7 @@ section{
   background:var(--panel);
 }
 .wrap{width:min(1200px,92%); margin:auto;}
-.h{font-size:clamp(28px,4vw,44px); margin-bottom:24px;}
+.h{font-size:clamp(28px,4vw,44px); margin-bottom:24px; font-weight:700; color:var(--accent);}
 .muted{color:var(--muted);}
 
 /* Grids */
@@ -87,7 +93,7 @@ section{
 /* Cards */
 .card, .folio a, .project-card, .blog-card {
   background:var(--panel);
-  border:1px solid rgba(255,255,255,0.08);
+  border:1px solid rgba(0,0,0,0.08);
   border-radius:14px;
   box-shadow:var(--shadow);
   overflow:hidden;
@@ -98,7 +104,7 @@ section{
 .card h3, .folio span, .blog-card-content h3, .project-card span { margin:.3em 0; }
 .card:hover, .folio a:hover, .project-card:hover, .blog-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 35px rgba(0,0,0,.45);
+  box-shadow: 0 12px 35px rgba(0,0,0,.25);
 }
 
 /* Card Images */
@@ -113,7 +119,7 @@ section{
 /* Card Titles/Text */
 .folio span, .project-card span {
   position:absolute; left:14px; bottom:12px; z-index:2;
-  font-weight:700; color:#ffffff; text-shadow:0 2px 6px rgba(0,0,0,0.3);
+  font-weight:700; color:#fff; text-shadow:0 2px 6px rgba(0,0,0,0.3);
 }
 .blog-card-content { padding:20px; flex:1; }
 .blog-card-content h3 { color:var(--text); }
@@ -128,14 +134,14 @@ section{
 .project-card:hover .overlay { opacity:1; }
 
 /* Contact */
-.contact{background:#1e1e2f; text-align:center;}
+.contact{background:var(--bg); text-align:center;}
 form{display:grid; gap:14px; max-width:720px; margin:auto;}
 input, textarea{
-  background:#2a2c3c; color:var(--text); border:1px solid rgba(255,255,255,.12);
+  background:#f0f0f0; color:var(--text); border:1px solid rgba(0,0,0,.12);
   padding:14px 16px; border-radius:10px; outline:none;
 }
 textarea{min-height:140px; resize:vertical;}
-.btn{background:var(--accent); color:#ffffff; border:0; font-weight:800; padding:14px 18px; border-radius:10px; cursor:pointer;}
+.btn{background:var(--accent); color:#ffffff; border:0; font-weight:700; padding:14px 18px; border-radius:10px; cursor:pointer; transition:background .3s;}
 .btn:hover{background:var(--accent-2);}
 
 /* Social Icons */
@@ -148,7 +154,7 @@ textarea{min-height:140px; resize:vertical;}
 .social-icon:hover { background:var(--accent); transform:translateY(-3px); }
 .social-icon:hover svg { fill:#ffffff; }
 
-footer{background:#1e1e2f; color:var(--muted); padding:26px 0; text-align:center;}
+footer{background:var(--accent); color:#fff; padding:26px 0; text-align:center; font-size:0.95rem;}
 
 /* Certification Buttons */
 .cert-btn, .badge-btn {
