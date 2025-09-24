@@ -61,4 +61,29 @@ img{max-width:100%;display:block;border-radius:10px;}
 }
 .cta:hover{background:var(--accent); color:#ffffff;}
 
-/* ... (rest of your CSS stays unchanged) ... */
+/* === FIXES ADDED FOR IMAGE SIZES === */
+
+/* Social icons (GitHub, LinkedIn, Gmail, etc.) */
+.social-icon img,
+.social-links svg {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: inline-block;
+  margin: 0 8px;
+}
+
+/* Project & Dashboard thumbnails */
+.project-card img {
+  width: 100%;
+  height: 200px;       /* uniform size */
+  object-fit: cover;   /* crop instead of stretch */
+  border-radius: 8px;  /* consistent rounded look */
+}
+
+/* Grid layout for projects/dashboards */
+.folio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
