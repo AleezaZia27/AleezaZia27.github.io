@@ -246,14 +246,22 @@ footer{background:#1e1e2f; color:var(--muted); padding:28px 0; text-align:center
 /* Responsive */
 @media (max-width:980px){
   .hero{grid-template-columns:1fr;}
-  .exp-grid{grid-template-columns:1fr 1fr;}
-  .folio a{grid-column:span 1;}
-  .blog-grid{grid-template-columns:1fr 1fr;}
+  .exp-grid{grid-template-columns:1fr;}
+  .folio{grid-template-columns:1fr;}
+  .blog-grid{grid-template-columns:1fr;}
 }
+
+@media (max-width:768px){
+  .hero{
+    background-attachment:scroll; /* Fix hero background on phones */
+    background-size:cover;
+  }
+}
+
 @media (max-width:640px){
   .nav ul{gap:18px;}
   .exp-grid{grid-template-columns:1fr;}
-  .folio a{grid-column:span 1;}
+  .folio{grid-template-columns:1fr;}
   .cert-btn, .badge-btn { width:100%; text-align:center; }
   .blog-grid{grid-template-columns:1fr;}
   .social-links{gap:14px;}
