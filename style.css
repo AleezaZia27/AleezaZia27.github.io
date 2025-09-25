@@ -68,7 +68,7 @@ img{max-width:100%;display:block;border-radius:10px;}
   display:grid; 
   grid-template-columns:1.15fr .85fr;
   background: linear-gradient(rgba(30,30,47,0.25), rgba(30,30,47,0.25)),
-              url('aleeza-zia.webp') center 20% / cover no-repeat;
+              url('aleeza-zia.webp') center center / cover no-repeat;
   background-attachment: fixed;
   position: relative;
   overflow: hidden;
