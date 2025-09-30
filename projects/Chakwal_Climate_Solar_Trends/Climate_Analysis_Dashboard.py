@@ -1,5 +1,5 @@
 # ===============================
-# 🌍 Chakwal Climate Dashboard (POWER data integrated, Advanced)
+# 🌍 Chakwal Climate Dashboard (Optimized, POWER data integrated)
 # ===============================
 
 import streamlit as st
@@ -19,21 +19,17 @@ st.set_page_config(
 )
 
 # -------------------------------
-# Load & Prepare Data
+# Load & Prepare Data (Optimized)
 # -------------------------------
 @st.cache_data
 def load_data():
-    # Path relative to the repo
     file_path = os.path.join(
         "projects",
         "Chakwal_Climate_Solar_Trends",
         "POWER_Point_Daily_20000101_20241231_032d93N_072d86E_LST.csv"
     )
 
-    df = pd.read_csv(
-        file_path,
-        skiprows=32  # skipping metadata rows in NASA POWER CSV
-    )
+    df = pd.read_csv(file_path, skiprows=32)
 
     for col in ["YEAR", "MO", "DY"]:
         if col not in df.columns:
@@ -43,12 +39,7 @@ def load_data():
     df["MO"] = df["MO"].fillna(1).astype(int)
     df["DY"] = df["DY"].fillna(1).astype(int)
 
-    # Safe DATE creation
-    df["DATE"] = pd.to_datetime(
-        dict(year=df["YEAR"], month=df["MO"], day=df["DY"]),
-        errors="coerce"
-    )
-
+    df["DATE"] = pd.to_datetime(dict(year=df["YEAR"], month=df["MO"], day=df["DY"]), errors="coerce")
     df["year"] = df["DATE"].dt.year
     df["month"] = df["DATE"].dt.month
     df["month_name"] = df["DATE"].dt.strftime("%b")
@@ -60,9 +51,66 @@ def load_data():
         "ALLSKY_SFC_SW_DWN": "Solar_Irradiance_kWh_per_m²_per_day"
     })
 
-    return df
+    month_order = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 
-df = load_data()
+    # Precompute aggregates to avoid recalculating in tabs
+    aggregates = {}
+
+    aggregates["yearly_temp"] = df.groupby("year")["Mean_Temp_C"].mean().reset_index()
+    aggregates["yearly_max_temp"] = df.groupby("year")["Max_Temp_C"].max().reset_index()
+    aggregates["annual_rain"] = df.groupby("year")["Total_Rain_mm"].sum().reset_index()
+    aggregates["annual_solar"] = df.groupby("year")["Solar_Irradiance_kWh_per_m²_per_day"].mean().reset_index()
+    aggregates["annual_solar"]["Clipped"] = aggregates["annual_solar"]["Solar_Irradiance_kWh_per_m²_per_day"].clip(
+        lower=aggregates["annual_solar"]["Solar_Irradiance_kWh_per_m²_per_day"].mean()-2*aggregates["annual_solar"]["Solar_Irradiance_kWh_per_m²_per_day"].std(),
+        upper=aggregates["annual_solar"]["Solar_Irradiance_kWh_per_m²_per_day"].mean()+2*aggregates["annual_solar"]["Solar_Irradiance_kWh_per_m²_per_day"].std()
+    )
+    aggregates["annual_solar"]["Trend"] = aggregates["annual_solar"]["Clipped"].rolling(3, center=True).mean()
+
+    aggregates["monthly"] = df.groupby(["year","month"]).agg({
+        "Mean_Temp_C":"mean",
+        "Total_Rain_mm":"sum"
+    }).reset_index()
+    aggregates["monthly_solar"] = df.groupby(["year","month"])["Solar_Irradiance_kWh_per_m²_per_day"].mean().reset_index()
+    aggregates["monthly_solar"]["Trend"] = aggregates["monthly_solar"].rolling(3, on="year", center=True).mean()
+
+    # Heatmaps
+    pivot_temp = aggregates["monthly"].pivot(index="month", columns="year", values="Mean_Temp_C").sort_index()
+    pivot_temp.index = [month_order[int(m)-1] for m in pivot_temp.index]
+    aggregates["heatmap_temp"] = pivot_temp
+
+    pivot_rain = aggregates["monthly"].pivot(index="month", columns="year", values="Total_Rain_mm").sort_index()
+    pivot_rain.index = [month_order[int(m)-1] for m in pivot_rain.index]
+    aggregates["heatmap_rain"] = pivot_rain
+
+    # Seasonal
+    seasonal_avg = df.groupby("month").agg({
+        "Mean_Temp_C":"mean",
+        "Total_Rain_mm":"mean"
+    }).reset_index()
+    seasonal_avg["month_name"] = seasonal_avg["month"].apply(lambda x: month_order[x-1])
+    aggregates["seasonal_avg"] = seasonal_avg
+
+    # Correlation
+    aggregates["corr_matrix"] = df[["Mean_Temp_C","Max_Temp_C","Total_Rain_mm","Solar_Irradiance_kWh_per_m²_per_day"]].corr()
+
+    # Highlights
+    aggregates["hottest_year"] = int(df.groupby("year")["Max_Temp_C"].mean().idxmax())
+    aggregates["hottest_val"] = float(df.groupby("year")["Max_Temp_C"].mean().max())
+    aggregates["coolest_year"] = int(df.groupby("year")["Mean_Temp_C"].mean().idxmin())
+    aggregates["coolest_val"] = float(df.groupby("year")["Mean_Temp_C"].mean().min())
+    aggregates["wettest_year"] = int(df.groupby("year")["Total_Rain_mm"].sum().idxmax())
+    aggregates["wettest_val"] = float(df.groupby("year")["Total_Rain_mm"].sum().max())
+    aggregates["driest_year"] = int(df.groupby("year")["Total_Rain_mm"].sum().idxmin())
+    aggregates["driest_val"] = float(df.groupby("year")["Total_Rain_mm"].sum().min())
+    aggregates["solar_year"] = int(df.groupby("year")["Solar_Irradiance_kWh_per_m²_per_day"].mean().idxmax())
+    aggregates["solar_val"] = float(df.groupby("year")["Solar_Irradiance_kWh_per_m²_per_day"].mean().max())
+    aggregates["rainiest_month"] = df.groupby("month_name")["Total_Rain_mm"].sum().idxmax()
+    aggregates["longest_dry"] = int((df["Total_Rain_mm"]==0).astype(int).groupby(df["year"]).sum().max())
+
+    return df, aggregates
+
+df, agg = load_data()
+month_order = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 
 # -------------------------------
 # Sidebar Navigation
@@ -72,8 +120,6 @@ tab = st.sidebar.radio(
     "Navigate",
     ["Overview", "Temperature", "Rainfall & Solar", "Monthly Trends & Heatmaps", "Correlation & Insights", "Seasonal Analysis", "Highlights & Location"]
 )
-
-month_order = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 
 # -------------------------------
 # Overview
@@ -90,7 +136,7 @@ if tab == "Overview":
                 delta=f"{df['Solar_Irradiance_kWh_per_m²_per_day'].max()-df['Solar_Irradiance_kWh_per_m²_per_day'].min():.2f}")
 
     roll_window = st.selectbox("Select Rolling Trend Window (years)", [3,5,10], index=0)
-    yearly_temp = df.groupby("year")["Mean_Temp_C"].mean().reset_index()
+    yearly_temp = agg["yearly_temp"].copy()
     yearly_temp["Trend"] = yearly_temp["Mean_Temp_C"].rolling(roll_window, center=True).mean()
 
     fig = px.line(
@@ -119,7 +165,7 @@ if tab == "Overview":
 elif tab == "Temperature":
     st.markdown("<h2 style='color:#000000;'>🌡 Temperature Analysis</h2>", unsafe_allow_html=True)
 
-    yearly_max = df.groupby("year")["Max_Temp_C"].max().reset_index()
+    yearly_max = agg["yearly_max_temp"].copy()
     mean_temp = yearly_max["Max_Temp_C"].mean()
     std_temp = yearly_max["Max_Temp_C"].std()
     yearly_max["Anomaly"] = yearly_max["Max_Temp_C"] > (mean_temp + std_temp)
@@ -142,31 +188,23 @@ elif tab == "Temperature":
 elif tab == "Rainfall & Solar":
     st.markdown("<h2 style='color:#000000;'>🌧 Rainfall & ☀ Solar</h2>", unsafe_allow_html=True)
 
-    annual_rain = df.groupby("year")["Total_Rain_mm"].sum().reset_index()
     fig_rain = px.bar(
-        annual_rain, x="year", y="Total_Rain_mm",
+        agg["annual_rain"], x="year", y="Total_Rain_mm",
         title="Annual Total Rainfall (mm)", template="plotly_white",
         color_discrete_sequence=["#1f77b4"]
     )
     st.plotly_chart(fig_rain, use_container_width=True)
 
-    annual_solar = df.groupby("year")["Solar_Irradiance_kWh_per_m²_per_day"].mean().reset_index()
-    mean_val = annual_solar["Solar_Irradiance_kWh_per_m²_per_day"].mean()
-    std_val = annual_solar["Solar_Irradiance_kWh_per_m²_per_day"].std()
-    annual_solar["Clipped"] = annual_solar["Solar_Irradiance_kWh_per_m²_per_day"].clip(
-        lower=mean_val - 2*std_val, upper=mean_val + 2*std_val
-    )
-    annual_solar["Trend"] = annual_solar["Clipped"].rolling(3, center=True).mean()
-
     fig_solar = px.line(
-        annual_solar, x="year", y="Clipped",
+        agg["annual_solar"], x="year", y="Clipped",
         title="Annual Solar Irradiance (Clipped ±2σ) with 3-Year Trend",
         markers=True, template="plotly_white"
     )
     fig_solar.update_traces(line=dict(color="gold"), marker=dict(color="gold"))
     fig_solar.add_trace(go.Scatter(
-        x=annual_solar["year"], y=annual_solar["Trend"],
-        mode="lines", name="3-Year Trend",
+        x=agg["annual_solar"]["year"], y=agg["annual_solar"]["Trend"],
+        mode="lines",
+        name="3-Year Trend",
         line=dict(color="orange", dash="dash")
     ))
     st.plotly_chart(fig_solar, use_container_width=True)
@@ -177,16 +215,10 @@ elif tab == "Rainfall & Solar":
 elif tab == "Monthly Trends & Heatmaps":
     st.markdown("<h2 style='color:#000000;'>🔥 Monthly Trends & Heatmaps</h2>", unsafe_allow_html=True)
 
-    # Month selection
     selected_month = st.selectbox("Select Month for Trends", month_order, index=0)
     selected_month_num = month_order.index(selected_month) + 1
 
-    monthly = df.groupby(["year","month"]).agg({
-        "Mean_Temp_C":"mean",
-        "Total_Rain_mm":"sum"
-    }).reset_index()
-
-    month_df = monthly[monthly["month"]==selected_month_num].sort_values("year")
+    month_df = agg["monthly"][agg["monthly"]["month"]==selected_month_num].sort_values("year")
     fig_temp = px.line(
         month_df, x="year", y="Mean_Temp_C",
         title=f"📈 {selected_month} Mean Temperature Across Years",
@@ -202,9 +234,7 @@ elif tab == "Monthly Trends & Heatmaps":
     )
     st.plotly_chart(fig_rain, use_container_width=True)
 
-    # Monthly solar irradiance
-    monthly_solar = df[df["month"]==selected_month_num].groupby("year")["Solar_Irradiance_kWh_per_m²_per_day"].mean().reset_index()
-    monthly_solar["Trend"] = monthly_solar["Solar_Irradiance_kWh_per_m²_per_day"].rolling(3, center=True).mean()
+    monthly_solar = agg["monthly_solar"][agg["monthly_solar"]["month"]==selected_month_num].sort_values("year")
     fig_solar_month = go.Figure()
     fig_solar_month.add_trace(go.Scatter(
         x=monthly_solar["year"],
@@ -230,10 +260,8 @@ elif tab == "Monthly Trends & Heatmaps":
     st.plotly_chart(fig_solar_month, use_container_width=True)
 
     # Heatmaps
-    pivot_temp = monthly.pivot(index="month", columns="year", values="Mean_Temp_C").sort_index()
-    pivot_temp.index = [month_order[int(m)-1] for m in pivot_temp.index]
     fig_heat_temp = px.imshow(
-        pivot_temp,
+        agg["heatmap_temp"],
         labels=dict(x="Year", y="Month", color="Temp °C"),
         color_continuous_scale="Oranges",
         title="Monthly Mean Temperature Heatmap",
@@ -241,10 +269,8 @@ elif tab == "Monthly Trends & Heatmaps":
     )
     st.plotly_chart(fig_heat_temp, use_container_width=True)
 
-    pivot_rain = monthly.pivot(index="month", columns="year", values="Total_Rain_mm").sort_index()
-    pivot_rain.index = [month_order[int(m)-1] for m in pivot_rain.index]
     fig_heat_rain = px.imshow(
-        pivot_rain,
+        agg["heatmap_rain"],
         labels=dict(x="Year", y="Month", color="Rain (mm)"),
         color_continuous_scale=px.colors.sequential.Blues,
         title="Monthly Rainfall Heatmap",
@@ -258,11 +284,8 @@ elif tab == "Monthly Trends & Heatmaps":
 elif tab == "Correlation & Insights":
     st.markdown("<h2 style='color:#000000;'>📊 Correlation & Insights</h2>", unsafe_allow_html=True)
 
-    corr_df = df[["Mean_Temp_C","Max_Temp_C","Total_Rain_mm","Solar_Irradiance_kWh_per_m²_per_day"]]
-    corr_matrix = corr_df.corr()
-
     fig_corr = px.imshow(
-        corr_matrix,
+        agg["corr_matrix"],
         text_auto=True,
         color_continuous_scale="RdBu_r",
         title="Correlation Between Climate Variables",
@@ -276,21 +299,15 @@ elif tab == "Correlation & Insights":
 elif tab == "Seasonal Analysis":
     st.markdown("<h2 style='color:#000000;'>📈 Seasonal Trends</h2>", unsafe_allow_html=True)
 
-    seasonal_avg = df.groupby("month").agg({
-        "Mean_Temp_C":"mean",
-        "Total_Rain_mm":"mean"
-    }).reset_index()
-    seasonal_avg["month_name"] = seasonal_avg["month"].apply(lambda x: month_order[x-1])
-
     fig_temp = px.line(
-        seasonal_avg, x="month_name", y="Mean_Temp_C",
+        agg["seasonal_avg"], x="month_name", y="Mean_Temp_C",
         title="Average Monthly Temperature Across Years",
         markers=True, template="plotly_white"
     )
     st.plotly_chart(fig_temp, use_container_width=True)
 
     fig_rain = px.bar(
-        seasonal_avg, x="month_name", y="Total_Rain_mm",
+        agg["seasonal_avg"], x="month_name", y="Total_Rain_mm",
         title="Average Monthly Rainfall Across Years",
         template="plotly_white", color_discrete_sequence=["#1f77b4"]
     )
@@ -302,32 +319,14 @@ elif tab == "Seasonal Analysis":
 elif tab == "Highlights & Location":
     st.markdown("<h2 style='color:#000000;'>📊 Climate Highlights & Chakwal Location</h2>", unsafe_allow_html=True)
 
-    hottest_year = int(df.groupby("year")["Max_Temp_C"].mean().idxmax())
-    hottest_val = float(df.groupby("year")["Max_Temp_C"].mean().max())
-
-    coolest_year = int(df.groupby("year")["Mean_Temp_C"].mean().idxmin())
-    coolest_val = float(df.groupby("year")["Mean_Temp_C"].mean().min())
-
-    wettest_year = int(df.groupby("year")["Total_Rain_mm"].sum().idxmax())
-    wettest_val = float(df.groupby("year")["Total_Rain_mm"].sum().max())
-
-    driest_year = int(df.groupby("year")["Total_Rain_mm"].sum().idxmin())
-    driest_val = float(df.groupby("year")["Total_Rain_mm"].sum().min())
-
-    solar_year = int(df.groupby("year")["Solar_Irradiance_kWh_per_m²_per_day"].mean().idxmax())
-    solar_val = float(df.groupby("year")["Solar_Irradiance_kWh_per_m²_per_day"].mean().max())
-
-    rainiest_month = df.groupby("month_name")["Total_Rain_mm"].sum().idxmax()
-    longest_dry = int((df["Total_Rain_mm"]==0).astype(int).groupby(df["year"]).sum().max())
-
     st.markdown(f"""
-    - 🌡 **Hottest Year:** {hottest_year} (Avg Max Temp {hottest_val:.1f}°C)  
-    - ❄ **Coolest Year:** {coolest_year} (Avg Mean Temp {coolest_val:.1f}°C)  
-    - 🌧 **Wettest Year:** {wettest_year} ({wettest_val:.0f} mm rainfall)  
-    - 🌵 **Driest Year:** {driest_year} ({driest_val:.0f} mm rainfall)  
-    - ☀ **Highest Solar Irradiance:** {solar_year} ({solar_val:.2f} kWh/m²/day)  
-    - ⛈ **Rainiest Month (overall):** {rainiest_month}  
-    - 🔎 **Longest Dry Spell (approx. yearly zeros):** ~{longest_dry} days
+    - 🌡 **Hottest Year:** {agg['hottest_year']} (Avg Max Temp {agg['hottest_val']:.1f}°C)  
+    - ❄ **Coolest Year:** {agg['coolest_year']} (Avg Mean Temp {agg['coolest_val']:.1f}°C)  
+    - 🌧 **Wettest Year:** {agg['wettest_year']} ({agg['wettest_val']:.0f} mm rainfall)  
+    - 🌵 **Driest Year:** {agg['driest_year']} ({agg['driest_val']:.0f} mm rainfall)  
+    - ☀ **Highest Solar Irradiance:** {agg['solar_year']} ({agg['solar_val']:.2f} kWh/m²/day)  
+    - ⛈ **Rainiest Month (overall):** {agg['rainiest_month']}  
+    - 🔎 **Longest Dry Spell (approx. yearly zeros):** ~{agg['longest_dry']} days
     """)
 
     st.markdown("### 🗺 Chakwal Location")
