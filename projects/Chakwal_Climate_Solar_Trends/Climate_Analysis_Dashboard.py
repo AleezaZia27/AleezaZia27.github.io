@@ -71,7 +71,8 @@ def load_data():
         "Total_Rain_mm":"sum"
     }).reset_index()
     aggregates["monthly_solar"] = df.groupby(["year","month"])["Solar_Irradiance_kWh_per_m²_per_day"].mean().reset_index()
-    aggregates["monthly_solar"]["Trend"] = aggregates["monthly_solar"].rolling(3, on="year", center=True).mean()
+    aggregates["monthly_solar"] = aggregates["monthly_solar"].sort_values("year")
+    aggregates["monthly_solar"]["Trend"] = aggregates["monthly_solar"]["Solar_Irradiance_kWh_per_m²_per_day"].rolling(3, center=True).mean()
 
     # Heatmaps
     pivot_temp = aggregates["monthly"].pivot(index="month", columns="year", values="Mean_Temp_C").sort_index()
