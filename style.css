@@ -11,6 +11,7 @@
   --accent-2:#06a873;       
   --shadow:0 10px 30px rgba(0,0,0,.4); 
   --shadow-soft:0 8px 20px rgba(0,0,0,.25);
+  --nav-height:70px;       /* for mobile section offset */
 }
 
 *{box-sizing:border-box;}
@@ -25,7 +26,7 @@ img{max-width:100%;display:block;border-radius:10px;}
 
 /* NAV */
 .nav{
-  position:fixed; inset:0 0 auto 0; height:70px; z-index:50;
+  position:fixed; top:0; left:0; right:0; height:var(--nav-height); z-index:50;
   display:flex; align-items:center; justify-content:center;
   background:rgba(30,30,47,0.92); border-bottom:1px solid rgba(255,255,255,.08);
   backdrop-filter:saturate(120%) blur(8px);
@@ -62,17 +63,15 @@ img{max-width:100%;display:block;border-radius:10px;}
 
 /* HERO */
 .hero{
-  margin-top:70px;             
+  margin-top:var(--nav-height);             
   min-height:92vh; 
-  padding-bottom:60px;
   display:grid; 
   grid-template-columns:1.15fr .85fr;
   background: linear-gradient(rgba(30,30,47,0.25), rgba(30,30,47,0.25)),
               url('aleeza-zia.webp') center center / cover no-repeat;
-  background-attachment: fixed;
   position: relative;
   overflow: hidden;
-  filter: brightness(0.75) contrast(1.1) saturate(0.95);
+  filter: brightness(0.9) contrast(1.1) saturate(0.95); /* brightness increased */
 }
 
 .hero::after{
@@ -136,7 +135,8 @@ img{max-width:100%;display:block;border-radius:10px;}
 
 /* SECTIONS */
 section{
-  padding:80px 0;
+  padding:calc(80px + var(--nav-height)) 0 80px 0; /* add nav offset for headings */
+  scroll-margin-top: var(--nav-height); /* fix section heading visible behind fixed nav */
   background:var(--panel);
 }
 .wrap{width:min(1200px,92%); margin:auto;}
@@ -255,6 +255,8 @@ footer{background:#1e1e2f; color:var(--muted); padding:28px 0; text-align:center
   .hero{
     background-attachment:scroll; /* Fix hero background on phones */
     background-size:cover;
+    background-position:center top; /* ensure important part visible */
+    min-height:80vh;
   }
 }
 
@@ -265,6 +267,7 @@ footer{background:#1e1e2f; color:var(--muted); padding:28px 0; text-align:center
   .cert-btn, .badge-btn { width:100%; text-align:center; }
   .blog-grid{grid-template-columns:1fr;}
   .social-links{gap:14px;}
+  section{padding:calc(60px + var(--nav-height)) 0 60px 0;}
 }
 
 /* Animate on scroll helper */
